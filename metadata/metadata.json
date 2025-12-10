@@ -1,0 +1,981 @@
+{
+  "title": "Biomass HTT/HTL Dataset",
+  "version": "1.0.0",
+  "description": "Unified, curated dataset of biomass hydrothermal treatment/liquefaction experiments for lignocellulosic and lignin-rich feedstocks",
+  "license": "CC-BY-4.0",
+  "created": "2025-12-08",
+  "n_rows": 3543,
+  "n_columns": 103,
+  "year_range": [
+    1982,
+    2026
+  ],
+  "contact": {
+    "name": "Seifallah El Fetni",
+    "affiliation": "CTC gGmbH",
+    "email": "seifallah.elfetni@ctc-germany.de"
+  },
+  "keywords": [
+    "biomass",
+    "data-driven chemistry",
+    "hydrothermal liquefaction",
+    "hydrothermal treatment",
+    "HTL",
+    "HTC",
+    "bio-oil",
+    "biochar",
+    "lignocellulosic biomass",
+    "lignin",
+    "machine learning",
+    "LCA"
+  ],
+  "column_groups": {
+    "feedstock_composition": [
+      "C_feed_wt_pct",
+      "H_feed_wt_pct",
+      "O_feed_wt_pct",
+      "N_feed_wt_pct",
+      "S_feed_wt_pct",
+      "Ash_feed_wt_pct",
+      "Lignin_feed_wt_pct",
+      "Cellulose_feed_wt_pct",
+      "Hemicellulose_feed_wt_pct",
+      "Extractives_feed_wt_pct",
+      "Moisture_min_wt_pct_ar",
+      "Moisture_max_wt_pct_ar",
+      "O_C_feed_molar",
+      "H_C_feed_molar",
+      "HHV_feed_MJ_per_kg",
+      "LRI"
+    ],
+    "tracking": [
+      "LRI_imputed",
+      "C_Note",
+      "C_method",
+      "O/C_Note",
+      "OC_method",
+      "H/C_Note",
+      "HC_method",
+      "t_note",
+      "HHV_feedstock_method",
+      "HHV_feedstock_imputed",
+      "HHV_biooil_method",
+      "HHV_biochar_method",
+      "S_method",
+      "S_biooil_method",
+      "S_biochar_method",
+      "Lignin_method",
+      "Lignin_imputed",
+      "cellulose_method",
+      "cellulose_imputed",
+      "hemicellulose_method",
+      "hemicellulose_imputed",
+      "Ash_method",
+      "Ash_imputed",
+      "LRI_imputed_source"
+    ],
+    "biooil_properties": [
+      "Carbon_yield_biooil_pct",
+      "HHV_biooil_MJ_per_kg",
+      "C_biooil_wt_pct",
+      "H_biooil_wt_pct",
+      "O_biooil_wt_pct",
+      "N_biooil_wt_pct",
+      "S_biooil_wt_pct",
+      "O_C_biooil_molar",
+      "H_C_biooil_molar"
+    ],
+    "provenance": [
+      "paper_title",
+      "DOI",
+      "year",
+      "Provenance",
+      "Ref",
+      "process_type"
+    ],
+    "feedstock_identity": [
+      "Feedstock",
+      "Family_std"
+    ],
+    "char_properties": [
+      "Carbon_yield_char_pct",
+      "HHV_char_MJ_per_kg",
+      "C_char_wt_pct",
+      "H_char_wt_pct",
+      "O_char_wt_pct",
+      "N_char_wt_pct",
+      "S_char_wt_pct",
+      "O_C_char_molar",
+      "H_C_char_molar"
+    ],
+    "yields": [
+      "Yield_biooil_wt_pct",
+      "Yield_char_wt_pct",
+      "Yield_aqueous_wt_pct",
+      "Yield_gas_wt_pct",
+      "Yield_gas_water_wt_pct",
+      "Energy_yield_biooil_pct",
+      "Energy_yield_char_pct"
+    ],
+    "process_conditions": [
+      "process_subtype",
+      "reactor",
+      "atmosphere",
+      "solvent_or_medium",
+      "T_reaction_C",
+      "t_residence_min",
+      "t_ramp_min",
+      "IC_feed_wt_pct_slurry",
+      "pressure_reaction_MPa",
+      "heating_rate_C_per_min",
+      "stirring_rpm",
+      "water_biomass_ratio_kg_kg",
+      "catalyst",
+      "cat_biomass_ratio_kg_kg",
+      "yield_basis",
+      "separation_method"
+    ],
+    "other": [
+      "LCH_total_wt_pct",
+      "Lignin_share_pct",
+      "Holo_share_pct",
+      "Lignin_from_LCH_wt_pct",
+      "Cellulose_from_LCH_wt_pct",
+      "Hemicellulose_from_LCH_wt_pct",
+      "sum_LCH_wt_pct",
+      "sum_CHONSAsh_wt_pct",
+      "sum_CHONS_wt_pct",
+      "LCH_closure_flag",
+      "LCH_total_imputed_wt_pct",
+      "Lignin_share_imputed_pct",
+      "LCH_total_imputed_source",
+      "Lignin_share_imputed_source"
+    ]
+  },
+  "columns": [
+    {
+      "name": "paper_title",
+      "description": "Title of the source publication",
+      "unit": null,
+      "dtype": "string",
+      "group": "provenance",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "DOI",
+      "description": "Digital Object Identifier of the source publication",
+      "unit": null,
+      "dtype": "string",
+      "group": "provenance",
+      "completeness_pct": 99.1
+    },
+    {
+      "name": "year",
+      "description": "Publication year",
+      "unit": null,
+      "dtype": "integer",
+      "group": "provenance",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "Provenance",
+      "description": "Origin of the data row (table, figure, manual digitization, etc.)",
+      "unit": null,
+      "dtype": "string",
+      "group": "provenance",
+      "completeness_pct": 99.15
+    },
+    {
+      "name": "Ref",
+      "description": "Internal reference identifier",
+      "unit": null,
+      "dtype": "string",
+      "group": "provenance",
+      "completeness_pct": 96.61
+    },
+    {
+      "name": "Feedstock",
+      "description": "Feedstock name as reported",
+      "unit": null,
+      "dtype": "string",
+      "group": "feedstock_identity",
+      "completeness_pct": 99.86
+    },
+    {
+      "name": "Family_std",
+      "description": "Standardized feedstock family label",
+      "unit": null,
+      "dtype": "string",
+      "group": "feedstock_identity",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "C_feed_wt_pct",
+      "description": "Carbon content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "H_feed_wt_pct",
+      "description": "Hydrogen content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 98.65
+    },
+    {
+      "name": "O_feed_wt_pct",
+      "description": "Oxygen content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 98.59
+    },
+    {
+      "name": "N_feed_wt_pct",
+      "description": "Nitrogen content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 73.61
+    },
+    {
+      "name": "S_feed_wt_pct",
+      "description": "Sulfur content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 54.64
+    },
+    {
+      "name": "Ash_feed_wt_pct",
+      "description": "Ash content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 99.6
+    },
+    {
+      "name": "Lignin_feed_wt_pct",
+      "description": "Lignin content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 95.85
+    },
+    {
+      "name": "Cellulose_feed_wt_pct",
+      "description": "Cellulose content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 88.74
+    },
+    {
+      "name": "Hemicellulose_feed_wt_pct",
+      "description": "Hemicellulose content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 87.89
+    },
+    {
+      "name": "Extractives_feed_wt_pct",
+      "description": "Extractives content of feedstock (dry basis)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 43.52
+    },
+    {
+      "name": "LCH_total_wt_pct",
+      "description": "Sum of Lignin + Cellulose + Hemicellulose",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 95.37
+    },
+    {
+      "name": "Lignin_share_pct",
+      "description": "Lignin as percentage of total structural polysaccharides (Lignin/LCH_total * 100)",
+      "unit": "% of LCH",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 95.2
+    },
+    {
+      "name": "Holo_share_pct",
+      "description": "Holocellulose as percentage of LCH ((Cellulose+Hemicellulose)/LCH_total * 100)",
+      "unit": "% of LCH",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 95.2
+    },
+    {
+      "name": "Lignin_from_LCH_wt_pct",
+      "description": "Lignin reconstructed from LCH_total * Lignin_share",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 7.99
+    },
+    {
+      "name": "Cellulose_from_LCH_wt_pct",
+      "description": "Cellulose reconstructed from LCH features and family median ratio",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 7.99
+    },
+    {
+      "name": "Hemicellulose_from_LCH_wt_pct",
+      "description": "Hemicellulose reconstructed from LCH features and family median ratio",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 7.99
+    },
+    {
+      "name": "Moisture_min_wt_pct_ar",
+      "description": "Minimum reported moisture content (as received)",
+      "unit": "wt% as received",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 2.09
+    },
+    {
+      "name": "Moisture_max_wt_pct_ar",
+      "description": "Maximum reported moisture content (as received)",
+      "unit": "wt% as received",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 2.09
+    },
+    {
+      "name": "O_C_feed_molar",
+      "description": "O/C molar ratio of feedstock",
+      "unit": "molar ratio",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "H_C_feed_molar",
+      "description": "H/C molar ratio of feedstock",
+      "unit": "molar ratio",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "HHV_feed_MJ_per_kg",
+      "description": "Higher heating value of feedstock (dry basis)",
+      "unit": "MJ/kg",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "LRI",
+      "description": "Lignin Readiness Index: Formula = (Lignin/100 + C/60 + HHV/22 + (1/(O/C))/2 + (1/(H/C))/2) / 6",
+      "unit": "dimensionless",
+      "dtype": "float",
+      "group": "feedstock_composition",
+      "completeness_pct": 94.83
+    },
+    {
+      "name": "LRI_imputed",
+      "description": "Imputed LRI using ML model or formula-based calculation",
+      "unit": "dimensionless",
+      "dtype": "float",
+      "group": "tracking",
+      "completeness_pct": 98.65
+    },
+    {
+      "name": "sum_LCH_wt_pct",
+      "description": "Sum of Lignin + Cellulose + Hemicellulose for closure check",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 96.02
+    },
+    {
+      "name": "sum_CHONSAsh_wt_pct",
+      "description": "Sum of C+H+O+N+S+Ash for elemental closure check",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "sum_CHONS_wt_pct",
+      "description": "Sum of C+H+O+N+S (excluding Ash) for elemental closure check",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "LCH_closure_flag",
+      "description": "Quality flag for polymer closure (OK, LCH>105, LCH>110, LCH<0)",
+      "unit": null,
+      "dtype": "string",
+      "group": "other",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "process_type",
+      "description": "High-level process type (HTL, HTC, pyrolysis, etc.)",
+      "unit": null,
+      "dtype": "string",
+      "group": "provenance",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "process_subtype",
+      "description": "More specific process subtype",
+      "unit": null,
+      "dtype": "string",
+      "group": "process_conditions",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "reactor",
+      "description": "Reactor type/configuration",
+      "unit": null,
+      "dtype": "string",
+      "group": "process_conditions",
+      "completeness_pct": 92.18
+    },
+    {
+      "name": "atmosphere",
+      "description": "Gas atmosphere (N2, CO2, etc.)",
+      "unit": null,
+      "dtype": "string",
+      "group": "process_conditions",
+      "completeness_pct": 67.32
+    },
+    {
+      "name": "solvent_or_medium",
+      "description": "Primary solvent or reaction medium",
+      "unit": null,
+      "dtype": "string",
+      "group": "process_conditions",
+      "completeness_pct": 99.86
+    },
+    {
+      "name": "T_reaction_C",
+      "description": "Reaction temperature",
+      "unit": "°C",
+      "dtype": "float",
+      "group": "process_conditions",
+      "completeness_pct": 99.97
+    },
+    {
+      "name": "t_residence_min",
+      "description": "Isothermal residence/holding time at T",
+      "unit": "min",
+      "dtype": "float",
+      "group": "process_conditions",
+      "completeness_pct": 99.63
+    },
+    {
+      "name": "t_ramp_min",
+      "description": "Heating/ramp time from ambient to T",
+      "unit": "min",
+      "dtype": "float",
+      "group": "process_conditions",
+      "completeness_pct": 0.2
+    },
+    {
+      "name": "IC_feed_wt_pct_slurry",
+      "description": "Initial solids concentration of feed in slurry",
+      "unit": "wt% of slurry",
+      "dtype": "float",
+      "group": "process_conditions",
+      "completeness_pct": 98.0
+    },
+    {
+      "name": "pressure_reaction_MPa",
+      "description": "Reaction pressure (autogenous or specified)",
+      "unit": "MPa",
+      "dtype": "string",
+      "group": "process_conditions",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "heating_rate_C_per_min",
+      "description": "Average heating rate to T",
+      "unit": "°C/min",
+      "dtype": "float",
+      "group": "process_conditions",
+      "completeness_pct": 25.54
+    },
+    {
+      "name": "stirring_rpm",
+      "description": "Stirring / agitation speed",
+      "unit": "rpm",
+      "dtype": "float",
+      "group": "process_conditions",
+      "completeness_pct": 21.11
+    },
+    {
+      "name": "water_biomass_ratio_kg_kg",
+      "description": "Water-to-biomass ratio",
+      "unit": "kg water / kg biomass",
+      "dtype": "float",
+      "group": "process_conditions",
+      "completeness_pct": 90.35
+    },
+    {
+      "name": "catalyst",
+      "description": "Catalyst name or system; explicitly 'none' when no catalyst used",
+      "unit": null,
+      "dtype": "string",
+      "group": "process_conditions",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "cat_biomass_ratio_kg_kg",
+      "description": "Catalyst-to-biomass ratio",
+      "unit": "kg catalyst / kg biomass",
+      "dtype": "float",
+      "group": "process_conditions",
+      "completeness_pct": 98.59
+    },
+    {
+      "name": "yield_basis",
+      "description": "Normalized yield basis (dry, daf, as-received, etc.)",
+      "unit": null,
+      "dtype": "string",
+      "group": "process_conditions",
+      "completeness_pct": 99.86
+    },
+    {
+      "name": "separation_method",
+      "description": "Post-reaction separation / workup method",
+      "unit": null,
+      "dtype": "string",
+      "group": "process_conditions",
+      "completeness_pct": 90.29
+    },
+    {
+      "name": "Yield_biooil_wt_pct",
+      "description": "Bio-oil / biocrude yield",
+      "unit": "wt% of initial dry feedstock",
+      "dtype": "float",
+      "group": "yields",
+      "completeness_pct": 81.12
+    },
+    {
+      "name": "Yield_char_wt_pct",
+      "description": "Char / solid residue yield",
+      "unit": "wt% of initial dry feedstock",
+      "dtype": "float",
+      "group": "yields",
+      "completeness_pct": 72.62
+    },
+    {
+      "name": "Yield_aqueous_wt_pct",
+      "description": "Aqueous phase yield",
+      "unit": "wt% of initial dry feedstock",
+      "dtype": "float",
+      "group": "yields",
+      "completeness_pct": 26.79
+    },
+    {
+      "name": "Yield_gas_wt_pct",
+      "description": "Gas yield",
+      "unit": "wt% of initial dry feedstock",
+      "dtype": "float",
+      "group": "yields",
+      "completeness_pct": 31.16
+    },
+    {
+      "name": "Yield_gas_water_wt_pct",
+      "description": "Gas + water / closure yield term",
+      "unit": "wt% of initial dry feedstock",
+      "dtype": "float",
+      "group": "yields",
+      "completeness_pct": 14.45
+    },
+    {
+      "name": "Energy_yield_biooil_pct",
+      "description": "Energy recovery in bio-oil",
+      "unit": "% of initial feedstock energy",
+      "dtype": "float",
+      "group": "yields",
+      "completeness_pct": 32.85
+    },
+    {
+      "name": "Energy_yield_char_pct",
+      "description": "Energy recovery in char / solid",
+      "unit": "% of initial feedstock energy",
+      "dtype": "float",
+      "group": "yields",
+      "completeness_pct": 22.92
+    },
+    {
+      "name": "Carbon_yield_biooil_pct",
+      "description": "Carbon recovery in bio-oil",
+      "unit": "% of initial feedstock carbon",
+      "dtype": "float",
+      "group": "biooil_properties",
+      "completeness_pct": 33.76
+    },
+    {
+      "name": "Carbon_yield_char_pct",
+      "description": "Carbon recovery in char / solid",
+      "unit": "% of initial feedstock carbon",
+      "dtype": "float",
+      "group": "char_properties",
+      "completeness_pct": 19.62
+    },
+    {
+      "name": "HHV_biooil_MJ_per_kg",
+      "description": "Higher heating value of bio-oil",
+      "unit": "MJ/kg",
+      "dtype": "float",
+      "group": "biooil_properties",
+      "completeness_pct": 37.91
+    },
+    {
+      "name": "C_biooil_wt_pct",
+      "description": "Carbon content of bio-oil",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "biooil_properties",
+      "completeness_pct": 37.68
+    },
+    {
+      "name": "H_biooil_wt_pct",
+      "description": "Hydrogen content of bio-oil",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "biooil_properties",
+      "completeness_pct": 36.55
+    },
+    {
+      "name": "O_biooil_wt_pct",
+      "description": "Oxygen content of bio-oil",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "biooil_properties",
+      "completeness_pct": 35.53
+    },
+    {
+      "name": "N_biooil_wt_pct",
+      "description": "Nitrogen content of bio-oil",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "biooil_properties",
+      "completeness_pct": 26.93
+    },
+    {
+      "name": "S_biooil_wt_pct",
+      "description": "Sulfur content of bio-oil",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "biooil_properties",
+      "completeness_pct": 26.08
+    },
+    {
+      "name": "O_C_biooil_molar",
+      "description": "O/C molar ratio of bio-oil",
+      "unit": "molar ratio",
+      "dtype": "float",
+      "group": "biooil_properties",
+      "completeness_pct": 35.53
+    },
+    {
+      "name": "H_C_biooil_molar",
+      "description": "H/C molar ratio of bio-oil",
+      "unit": "molar ratio",
+      "dtype": "float",
+      "group": "biooil_properties",
+      "completeness_pct": 36.55
+    },
+    {
+      "name": "HHV_char_MJ_per_kg",
+      "description": "Higher heating value of char / hydrochar",
+      "unit": "MJ/kg",
+      "dtype": "float",
+      "group": "char_properties",
+      "completeness_pct": 26.08
+    },
+    {
+      "name": "C_char_wt_pct",
+      "description": "Carbon content of char",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "char_properties",
+      "completeness_pct": 21.48
+    },
+    {
+      "name": "H_char_wt_pct",
+      "description": "Hydrogen content of char",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "char_properties",
+      "completeness_pct": 21.99
+    },
+    {
+      "name": "O_char_wt_pct",
+      "description": "Oxygen content of char",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "char_properties",
+      "completeness_pct": 21.45
+    },
+    {
+      "name": "N_char_wt_pct",
+      "description": "Nitrogen content of char",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "char_properties",
+      "completeness_pct": 18.23
+    },
+    {
+      "name": "S_char_wt_pct",
+      "description": "Sulfur content of char",
+      "unit": "wt%",
+      "dtype": "float",
+      "group": "char_properties",
+      "completeness_pct": 14.65
+    },
+    {
+      "name": "O_C_char_molar",
+      "description": "O/C molar ratio of char",
+      "unit": "molar ratio",
+      "dtype": "float",
+      "group": "char_properties",
+      "completeness_pct": 20.43
+    },
+    {
+      "name": "H_C_char_molar",
+      "description": "H/C molar ratio of char",
+      "unit": "molar ratio",
+      "dtype": "float",
+      "group": "char_properties",
+      "completeness_pct": 20.97
+    },
+    {
+      "name": "LCH_total_imputed_wt_pct",
+      "description": "Imputed LCH_total (ML model or median fallback)",
+      "unit": "wt% of dry feedstock",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 95.37
+    },
+    {
+      "name": "Lignin_share_imputed_pct",
+      "description": "Imputed Lignin_share (ML model)",
+      "unit": "% of LCH",
+      "dtype": "float",
+      "group": "other",
+      "completeness_pct": 95.85
+    },
+    {
+      "name": "C_Note",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 1.35
+    },
+    {
+      "name": "C_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "O/C_Note",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 1.41
+    },
+    {
+      "name": "OC_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "H/C_Note",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 1.35
+    },
+    {
+      "name": "HC_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "t_note",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "HHV_feedstock_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 99.18
+    },
+    {
+      "name": "HHV_feedstock_imputed",
+      "description": null,
+      "unit": null,
+      "dtype": "boolean",
+      "group": "tracking",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "HHV_biooil_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 0.93
+    },
+    {
+      "name": "HHV_biochar_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 0.28
+    },
+    {
+      "name": "S_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 54.64
+    },
+    {
+      "name": "S_biooil_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 26.08
+    },
+    {
+      "name": "S_biochar_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 14.65
+    },
+    {
+      "name": "Lignin_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 8.98
+    },
+    {
+      "name": "Lignin_imputed",
+      "description": null,
+      "unit": null,
+      "dtype": "boolean",
+      "group": "tracking",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "cellulose_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 30.76
+    },
+    {
+      "name": "cellulose_imputed",
+      "description": null,
+      "unit": null,
+      "dtype": "boolean",
+      "group": "tracking",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "hemicellulose_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 31.02
+    },
+    {
+      "name": "hemicellulose_imputed",
+      "description": null,
+      "unit": null,
+      "dtype": "boolean",
+      "group": "tracking",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "Ash_method",
+      "description": null,
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 0.25
+    },
+    {
+      "name": "Ash_imputed",
+      "description": null,
+      "unit": null,
+      "dtype": "boolean",
+      "group": "tracking",
+      "completeness_pct": 100.0
+    },
+    {
+      "name": "LRI_imputed_source",
+      "description": "Source/method of LRI imputation (formula, ML_RF, etc.)",
+      "unit": null,
+      "dtype": "string",
+      "group": "tracking",
+      "completeness_pct": 98.65
+    },
+    {
+      "name": "LCH_total_imputed_source",
+      "description": "Source/method of LCH_total imputation (ML_RF, median_family, etc.)",
+      "unit": null,
+      "dtype": "string",
+      "group": "other",
+      "completeness_pct": 95.37
+    },
+    {
+      "name": "Lignin_share_imputed_source",
+      "description": "Source/method of Lignin_share imputation (ML_RF, etc.)",
+      "unit": null,
+      "dtype": "string",
+      "group": "other",
+      "completeness_pct": 95.85
+    }
+  ]
+}

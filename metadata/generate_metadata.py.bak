@@ -1,0 +1,143 @@
+#!/usr/bin/env python
+"""
+Generate metadata.json for the Biomass HTT/HTL Dataset release.
+Reads from the COLUMN_METADATA in modules/column_reorder.py
+"""
+
+import json
+import sys
+import pandas as pd
+from datetime import datetime
+
+sys.path.append('../')
+from modules.column_reorder import COLUMN_METADATA
+
+# Group definitions for organization
+COLUMN_GROUPS = {
+    "provenance": ["paper_title", "DOI", "year", "Provenance", "Ref"],
+    "feedstock_identity": ["Feedstock", "Family_std"],
+    "feedstock_composition": [
+        "C_feed_wt_pct", "H_feed_wt_pct", "O_feed_wt_pct", "N_feed_wt_pct", 
+        "S_feed_wt_pct", "Ash_feed_wt_pct", "Lignin_feed_wt_pct", 
+        "Cellulose_feed_wt_pct", "Hemicellulose_feed_wt_pct", "Extractives_feed_wt_pct",
+        "Moisture_min_wt_pct_ar", "Moisture_max_wt_pct_ar",
+        "O_C_feed_molar", "H_C_feed_molar", "HHV_feed_MJ_per_kg", "LRI"
+    ],
+    "process_conditions": [
+        "process_type", "process_subtype", "reactor", "atmosphere", "solvent_or_medium",
+        "T_reaction_C", "t_residence_min", "t_ramp_min", "IC_feed_wt_pct_slurry",
+        "pressure_reaction_MPa", "heating_rate_C_per_min", "stirring_rpm",
+        "water_biomass_ratio_kg_kg", "catalyst", "cat_biomass_ratio_kg_kg",
+        "yield_basis", "separation_method"
+    ],
+    "yields": [
+        "Yield_biooil_wt_pct", "Yield_char_wt_pct", "Yield_aqueous_wt_pct",
+        "Yield_gas_wt_pct", "Yield_gas_water_wt_pct",
+        "Energy_yield_biooil_pct", "Energy_yield_char_pct",
+        "Carbon_yield_biooil_pct", "Carbon_yield_char_pct"
+    ],
+    "biooil_properties": [
+        "HHV_biooil_MJ_per_kg", "C_biooil_wt_pct", "H_biooil_wt_pct",
+        "O_biooil_wt_pct", "N_biooil_wt_pct", "S_biooil_wt_pct",
+        "O_C_biooil_molar", "H_C_biooil_molar"
+    ],
+    "char_properties": [
+        "HHV_char_MJ_per_kg", "C_char_wt_pct", "H_char_wt_pct",
+        "O_char_wt_pct", "N_char_wt_pct", "S_char_wt_pct",
+        "O_C_char_molar", "H_C_char_molar"
+    ],
+    "tracking": [
+        "extra", "C_Note", "C_method", "O/C_Note", "OC_method", "H/C_Note",
+        "HC_method", "t_note", "HHV_feedstock_method", "HHV_feedstock_imputed",
+        "HHV_biooil_method", "HHV_biochar_method", "S_method", "S_biooil_method",
+        "S_biochar_method", "Lignin_method", "Lignin_imputed", "cellulose_method",
+        "cellulose_imputed", "hemicellulose_method", "hemicellulose_imputed",
+        "Ash_method", "Ash_imputed", "LRI_imputed", "LRI_imputed_source"
+    ]
+}
+
+def get_column_group(col_name):
+    """Determine which group a column belongs to"""
+    for group, cols in COLUMN_GROUPS.items():
+        if col_name in cols:
+            return group
+    return "other"
+
+def infer_dtype(col_name):
+    """Infer data type from column name"""
+    if any(x in col_name.lower() for x in ['wt_pct', 'molar', 'mj_per_kg', 'c_per_min', 'mpa', 'rpm', 'kg_kg', 'lri']):
+        return "float"
+    elif any(x in col_name.lower() for x in ['imputed', '_flag']):
+        return "boolean"
+    elif col_name in ['year']:
+        return "integer"
+    else:
+        return "string"
+
+def generate_metadata():
+    """Generate complete metadata.json"""
+    
+    # Read actual dataset to get completeness
+    df = pd.read_csv('../master_dataset.csv')
+    
+    # Build column list
+    columns = []
+    for col_name in df.columns:
+        if col_name in COLUMN_METADATA:
+            orig, suggested, desc, unit = COLUMN_METADATA[col_name]
+            final_name = suggested if suggested else orig
+        else:
+            final_name = col_name
+            desc = f"Column: {col_name}"
+            unit = ""
+        
+        completeness = (df[col_name].notna().sum() / len(df) * 100)
+        
+        col_info = {
+            "name": final_name,
+            "description": desc,
+            "unit": unit if unit else None,
+            "dtype": infer_dtype(final_name),
+            "group": get_column_group(final_name),
+            "completeness_pct": round(completeness, 2)
+        }
+        columns.append(col_info)
+    
+    # Main metadata structure
+    metadata = {
+        "title": "Biomass HTT/HTL Dataset",
+        "version": "1.0.0",
+        "description": "Unified, curated dataset of biomass hydrothermal treatment/liquefaction experiments for lignocellulosic and lignin-rich feedstocks",
+        "license": "CC-BY-4.0",
+        "created": datetime.now().strftime("%Y-%m-%d"),
+        "n_rows": len(df),
+        "n_columns": len(df.columns),
+        "year_range": [int(df['year'].min()), int(df['year'].max())],
+        "contact": {
+            "name": "Seifallah El Fetni",
+            "affiliation": "CTC gGmbH",
+            "email": "your.email@institution.de"
+        },
+        "keywords": [
+            "biomass", "hydrothermal liquefaction", "hydrothermal treatment",
+            "HTL", "HTC", "bio-oil", "biochar", "lignocellulosic biomass",
+            "lignin", "machine learning", "LCA"
+        ],
+        "column_groups": {
+            group: [c["name"] for c in columns if c["group"] == group]
+            for group in set(c["group"] for c in columns)
+        },
+        "columns": columns
+    }
+    
+
+    with open('metadata.json', 'w', encoding='utf-8') as f:
+        json.dump(metadata, f, indent=2, ensure_ascii=False)
+    
+    print(f"✅ Generated metadata.json")
+    print(f"   {len(columns)} columns documented")
+    print(f"   {len(df)} experimental runs")
+    print(f"   Year range: {metadata['year_range']}")
+
+if __name__ == "__main__":
+    generate_metadata()

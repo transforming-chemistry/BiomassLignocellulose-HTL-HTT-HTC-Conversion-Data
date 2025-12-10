@@ -1,0 +1,104 @@
+column_name,description,unit,dtype,group,completeness_pct
+paper_title,Title of the source publication,,string,provenance,100.0
+DOI,Digital Object Identifier of the source publication,,string,provenance,99.1
+year,Publication year,,integer,provenance,100.0
+Provenance,"Origin of the data row (table, figure, manual digitization, etc.)",,string,provenance,99.15
+Ref,Internal reference identifier,,string,provenance,96.61
+Feedstock,Feedstock name as reported,,string,feedstock_identity,99.86
+Family_std,Standardized feedstock family label,,string,feedstock_identity,100.0
+C_feed_wt_pct,Carbon content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,100.0
+H_feed_wt_pct,Hydrogen content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,98.65
+O_feed_wt_pct,Oxygen content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,98.59
+N_feed_wt_pct,Nitrogen content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,73.61
+S_feed_wt_pct,Sulfur content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,54.64
+Ash_feed_wt_pct,Ash content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,99.6
+Lignin_feed_wt_pct,Lignin content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,95.85
+Cellulose_feed_wt_pct,Cellulose content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,88.74
+Hemicellulose_feed_wt_pct,Hemicellulose content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,87.89
+Extractives_feed_wt_pct,Extractives content of feedstock (dry basis),wt% of dry feedstock,float,feedstock_composition,43.52
+LCH_total_wt_pct,Sum of Lignin + Cellulose + Hemicellulose,wt% of dry feedstock,float,other,95.37
+Lignin_share_pct,Lignin as percentage of total structural polysaccharides (Lignin/LCH_total * 100),% of LCH,float,other,95.2
+Holo_share_pct,Holocellulose as percentage of LCH ((Cellulose+Hemicellulose)/LCH_total * 100),% of LCH,float,other,95.2
+Lignin_from_LCH_wt_pct,Lignin reconstructed from LCH_total * Lignin_share,wt% of dry feedstock,float,other,7.99
+Cellulose_from_LCH_wt_pct,Cellulose reconstructed from LCH features and family median ratio,wt% of dry feedstock,float,other,7.99
+Hemicellulose_from_LCH_wt_pct,Hemicellulose reconstructed from LCH features and family median ratio,wt% of dry feedstock,float,other,7.99
+Moisture_min_wt_pct_ar,Minimum reported moisture content (as received),wt% as received,float,feedstock_composition,2.09
+Moisture_max_wt_pct_ar,Maximum reported moisture content (as received),wt% as received,float,feedstock_composition,2.09
+O_C_feed_molar,O/C molar ratio of feedstock,molar ratio,float,feedstock_composition,100.0
+H_C_feed_molar,H/C molar ratio of feedstock,molar ratio,float,feedstock_composition,100.0
+HHV_feed_MJ_per_kg,Higher heating value of feedstock (dry basis),MJ/kg,float,feedstock_composition,100.0
+LRI,Lignin Readiness Index: Formula = (Lignin/100 + C/60 + HHV/22 + (1/(O/C))/2 + (1/(H/C))/2) / 6,dimensionless,float,feedstock_composition,94.83
+LRI_imputed,Imputed LRI using ML model or formula-based calculation,dimensionless,float,tracking,98.65
+sum_LCH_wt_pct,Sum of Lignin + Cellulose + Hemicellulose for closure check,wt% of dry feedstock,float,other,96.02
+sum_CHONSAsh_wt_pct,Sum of C+H+O+N+S+Ash for elemental closure check,wt% of dry feedstock,float,other,100.0
+sum_CHONS_wt_pct,Sum of C+H+O+N+S (excluding Ash) for elemental closure check,wt% of dry feedstock,float,other,100.0
+LCH_closure_flag,"Quality flag for polymer closure (OK, LCH>105, LCH>110, LCH<0)",,string,other,100.0
+process_type,"High-level process type (HTL, HTC, pyrolysis, etc.)",,string,provenance,100.0
+process_subtype,More specific process subtype,,string,process_conditions,100.0
+reactor,Reactor type/configuration,,string,process_conditions,92.18
+atmosphere,"Gas atmosphere (N2, CO2, etc.)",,string,process_conditions,67.32
+solvent_or_medium,Primary solvent or reaction medium,,string,process_conditions,99.86
+T_reaction_C,Reaction temperature,°C,float,process_conditions,99.97
+t_residence_min,Isothermal residence/holding time at T,min,float,process_conditions,99.63
+t_ramp_min,Heating/ramp time from ambient to T,min,float,process_conditions,0.2
+IC_feed_wt_pct_slurry,Initial solids concentration of feed in slurry,wt% of slurry,float,process_conditions,98.0
+pressure_reaction_MPa,Reaction pressure (autogenous or specified),MPa,string,process_conditions,100.0
+heating_rate_C_per_min,Average heating rate to T,°C/min,float,process_conditions,25.54
+stirring_rpm,Stirring / agitation speed,rpm,float,process_conditions,21.11
+water_biomass_ratio_kg_kg,Water-to-biomass ratio,kg water / kg biomass,float,process_conditions,90.35
+catalyst,Catalyst name or system; explicitly 'none' when no catalyst used,,string,process_conditions,100.0
+cat_biomass_ratio_kg_kg,Catalyst-to-biomass ratio,kg catalyst / kg biomass,float,process_conditions,98.59
+yield_basis,"Normalized yield basis (dry, daf, as-received, etc.)",,string,process_conditions,99.86
+separation_method,Post-reaction separation / workup method,,string,process_conditions,90.29
+Yield_biooil_wt_pct,Bio-oil / biocrude yield,wt% of initial dry feedstock,float,yields,81.12
+Yield_char_wt_pct,Char / solid residue yield,wt% of initial dry feedstock,float,yields,72.62
+Yield_aqueous_wt_pct,Aqueous phase yield,wt% of initial dry feedstock,float,yields,26.79
+Yield_gas_wt_pct,Gas yield,wt% of initial dry feedstock,float,yields,31.16
+Yield_gas_water_wt_pct,Gas + water / closure yield term,wt% of initial dry feedstock,float,yields,14.45
+Energy_yield_biooil_pct,Energy recovery in bio-oil,% of initial feedstock energy,float,yields,32.85
+Energy_yield_char_pct,Energy recovery in char / solid,% of initial feedstock energy,float,yields,22.92
+Carbon_yield_biooil_pct,Carbon recovery in bio-oil,% of initial feedstock carbon,float,biooil_properties,33.76
+Carbon_yield_char_pct,Carbon recovery in char / solid,% of initial feedstock carbon,float,char_properties,19.62
+HHV_biooil_MJ_per_kg,Higher heating value of bio-oil,MJ/kg,float,biooil_properties,37.91
+C_biooil_wt_pct,Carbon content of bio-oil,wt%,float,biooil_properties,37.68
+H_biooil_wt_pct,Hydrogen content of bio-oil,wt%,float,biooil_properties,36.55
+O_biooil_wt_pct,Oxygen content of bio-oil,wt%,float,biooil_properties,35.53
+N_biooil_wt_pct,Nitrogen content of bio-oil,wt%,float,biooil_properties,26.93
+S_biooil_wt_pct,Sulfur content of bio-oil,wt%,float,biooil_properties,26.08
+O_C_biooil_molar,O/C molar ratio of bio-oil,molar ratio,float,biooil_properties,35.53
+H_C_biooil_molar,H/C molar ratio of bio-oil,molar ratio,float,biooil_properties,36.55
+HHV_char_MJ_per_kg,Higher heating value of char / hydrochar,MJ/kg,float,char_properties,26.08
+C_char_wt_pct,Carbon content of char,wt%,float,char_properties,21.48
+H_char_wt_pct,Hydrogen content of char,wt%,float,char_properties,21.99
+O_char_wt_pct,Oxygen content of char,wt%,float,char_properties,21.45
+N_char_wt_pct,Nitrogen content of char,wt%,float,char_properties,18.23
+S_char_wt_pct,Sulfur content of char,wt%,float,char_properties,14.65
+O_C_char_molar,O/C molar ratio of char,molar ratio,float,char_properties,20.43
+H_C_char_molar,H/C molar ratio of char,molar ratio,float,char_properties,20.97
+LCH_total_imputed_wt_pct,Imputed LCH_total (ML model or median fallback),wt% of dry feedstock,float,other,95.37
+Lignin_share_imputed_pct,Imputed Lignin_share (ML model),% of LCH,float,other,95.85
+C_Note,,,string,tracking,1.35
+C_method,,,string,tracking,100.0
+O/C_Note,,,string,tracking,1.41
+OC_method,,,string,tracking,100.0
+H/C_Note,,,string,tracking,1.35
+HC_method,,,string,tracking,100.0
+t_note,,,string,tracking,100.0
+HHV_feedstock_method,,,string,tracking,99.18
+HHV_feedstock_imputed,,,boolean,tracking,100.0
+HHV_biooil_method,,,string,tracking,0.93
+HHV_biochar_method,,,string,tracking,0.28
+S_method,,,string,tracking,54.64
+S_biooil_method,,,string,tracking,26.08
+S_biochar_method,,,string,tracking,14.65
+Lignin_method,,,string,tracking,8.98
+Lignin_imputed,,,boolean,tracking,100.0
+cellulose_method,,,string,tracking,30.76
+cellulose_imputed,,,boolean,tracking,100.0
+hemicellulose_method,,,string,tracking,31.02
+hemicellulose_imputed,,,boolean,tracking,100.0
+Ash_method,,,string,tracking,0.25
+Ash_imputed,,,boolean,tracking,100.0
+LRI_imputed_source,"Source/method of LRI imputation (formula, ML_RF, etc.)",,string,tracking,98.65
+LCH_total_imputed_source,"Source/method of LCH_total imputation (ML_RF, median_family, etc.)",,string,other,95.37
+Lignin_share_imputed_source,"Source/method of Lignin_share imputation (ML_RF, etc.)",,string,other,95.85

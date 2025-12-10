@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: "Biomass HTT/HTL Dataset"
+message: "If you use this dataset, please cite it as below."
+type: dataset
+authors:
+  - family-names: "El Fetni"
+    given-names: "Seifallah"
+    affiliation: "CTC gGmbH"
+    
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+version: "1.0.0"
+license: "CC-BY-4.0"
+keywords:
+  - biomass
+  - hydrothermal liquefaction
+  - hydrothermal treatment
+  - HTL
+  - HTC
+  - bio-oil
+  - biochar
+  - machine learning
+  - LCA
+  - lignocellulosic biomass
+  - lignin
+  - Van Krevelen
+date-released: "2025-01-15"
+repository-code: "https://github.com/SFETNI/..."
+abstract: |
+  Comprehensive dataset of 3,386 experimental runs on hydrothermal treatment and 
+  liquefaction of lignocellulosic and lignin-rich feedstocks, extracted from 
+  peer-reviewed literature (1993-2025). Includes process conditions, feedstock 
+  characterization, product yields, and properties with systematic quality 
+  assurance and ML-ready formatting.
