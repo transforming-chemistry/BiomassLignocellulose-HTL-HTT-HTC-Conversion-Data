@@ -1,0 +1,264 @@
+========================================
+TECHNICAL METADATA
+Biomass HTT/HTL Dataset
+========================================
+
+DATASET IDENTIFICATION
+----------------------
+Title: Biomass HTT/HTL Dataset
+Version: 1.0.0
+Created: 2026-01-06
+License: CC-BY-4.0
+
+DATASET DIMENSIONS
+------------------
+Total Rows (Experimental Runs): 3,693
+Total Columns (Features): 145
+Temporal Coverage: 1982-2026 (40+ years)
+
+
+KEYWORDS
+--------
+- biomass
+- hydrothermal liquefaction
+- hydrothermal treatment
+- HTL
+- HTC
+- bio-oil
+- biochar
+- lignocellulosic biomass
+- lignin
+- machine learning
+- LCA
+
+DATA STRUCTURE
+--------------
+The dataset is organized into 9 column groups with 145 total features:
+
+1. PROVENANCE (6 columns)
+   - paper_title, DOI, year, Provenance, Ref, process_type
+   - Purpose: Source publication tracking and reference metadata
+
+2. FEEDSTOCK IDENTITY (2 columns)
+   - Feedstock, Family_std
+   - Purpose: Biomass type identification and standardized classification
+
+3. FEEDSTOCK COMPOSITION (16 columns)
+   - Elemental: C_feed_wt_pct, H_feed_wt_pct, O_feed_wt_pct, N_feed_wt_pct, S_feed_wt_pct, Ash_feed_wt_pct
+   - Polymeric: Lignin_feed_wt_pct, Cellulose_feed_wt_pct, Hemicellulose_feed_wt_pct, Extractives_feed_wt_pct
+   - Ratios: O_C_feed_molar, H_C_feed_molar
+   - Energy: HHV_feed_MJ_per_kg
+   - Indices: LRI (Lignin Readiness Index)
+   - Moisture: Moisture_min_wt_pct_ar, Moisture_max_wt_pct_ar
+
+4. PROCESS CONDITIONS (16 columns)
+   - Temperature: T_reaction_C (typically 200-400°C)
+   - Time: t_residence_min, t_ramp_min
+   - Reactor: process_subtype, reactor, atmosphere
+   - Medium: solvent_or_medium, IC_feed_wt_pct_slurry, water_biomass_ratio_kg_kg
+   - Pressure: pressure_reaction_MPa
+   - Catalyst: catalyst, cat_biomass_ratio_kg_kg
+   - Other: heating_rate_C_per_min, stirring_rpm, yield_basis, separation_method
+
+5. YIELDS (7 columns)
+   - Mass yields: Yield_biooil_wt_pct, Yield_char_wt_pct, Yield_aqueous_wt_pct, Yield_gas_wt_pct, Yield_gas_water_wt_pct
+   - Energy yields: Energy_yield_biooil_pct, Energy_yield_char_pct
+
+6. BIO-OIL PROPERTIES (9 columns)
+   - Elemental: C_biooil_wt_pct, H_biooil_wt_pct, O_biooil_wt_pct, N_biooil_wt_pct, S_biooil_wt_pct
+   - Ratios: O_C_biooil_molar, H_C_biooil_molar
+   - Energy: HHV_biooil_MJ_per_kg
+   - Carbon recovery: Carbon_yield_biooil_pct
+
+7. CHAR PROPERTIES (9 columns)
+   - Elemental: C_char_wt_pct, H_char_wt_pct, O_char_wt_pct, N_char_wt_pct, S_char_wt_pct
+   - Ratios: O_C_char_molar, H_C_char_molar
+   - Energy: HHV_char_MJ_per_kg
+   - Carbon recovery: Carbon_yield_char_pct
+
+8. TRACKING (24 columns)
+   - Method documentation: C_method, O_method, OC_method, HC_method, S_method, etc.
+   - Imputation flags: LRI_imputed, HHV_feedstock_imputed, Lignin_imputed, cellulose_imputed, hemicellulose_imputed, Ash_imputed
+   - Quality notes: C_Note, O/C_Note, H/C_Note, t_note
+   - Source tracking: LRI_imputed_source
+
+9. OTHER / DERIVED DESCRIPTORS (76 columns)
+   - Compositional: LCH_total_wt_pct, Lignin_share_pct, Holo_share_pct, sum_LCH_wt_pct, sum_CHONSAsh_wt_pct
+   - Quality flags: LCH_closure_flag, Ash_adjusted
+   - Imputed values: LCH_total_imputed_wt_pct, Lignin_imputed_from_LCH, cellulose_imputed_from_LCH, hemicellulose_imputed_from_LCH
+   - Readiness indices: LRI_dd, CeRI_dd, HeRI_dd, HRI_dd, CRI_dd, HeRI_comp_dd
+   - Fractions: CeFrac_dd, L_share_idx, CeFrac_idx, CeFrac_mb
+   - Estimates: Lignin_HHV_est, Lignin_C_est, Lignin_est, Holocellulose
+   - Normalized features: inv_OC, inv_HC, ash_inv, C_norm, HHV_norm
+   - Performance indices: LPI, HoPI
+   - Source tracking for all imputed/derived features
+
+DATA COMPLETENESS BY GROUP
+---------------------------
+Core Features (>98% complete):
+- C_feed_wt_pct: 100.0%
+- O_feed_wt_pct: 100.0%
+- H_feed_wt_pct: 98.7%
+- T_reaction_C: 99.97%
+- t_residence_min: 99.65%
+- O_C_feed_molar: 100.0%
+- H_C_feed_molar: 100.0%
+- HHV_feed_MJ_per_kg: 100.0%
+- Family_std: 100.0%
+
+Compositional Features:
+- Lignin_feed_wt_pct: 96.18%
+- Cellulose_feed_wt_pct: 95.61%
+- Hemicellulose_feed_wt_pct: 95.61%
+- Ash_feed_wt_pct: 99.68%
+- N_feed_wt_pct: 78.53%
+- S_feed_wt_pct: 54.78%
+
+Process Conditions:
+- reactor: 92.5%
+- solvent_or_medium: 99.86%
+- IC_feed_wt_pct_slurry: 98.08%
+- water_biomass_ratio_kg_kg: 90.74%
+- atmosphere: 65.88%
+- heating_rate_C_per_min: 24.51%
+- stirring_rpm: 21.18%
+
+Product Yields:
+- Yield_biooil_wt_pct: 80.67%
+- Yield_char_wt_pct: 71.41%
+- Yield_gas_wt_pct: 30.73%
+- Yield_aqueous_wt_pct: 26.1%
+
+Bio-oil Properties:
+- C_biooil_wt_pct: 36.15%
+- HHV_biooil_MJ_per_kg: 36.61%
+- H_biooil_wt_pct: 35.07%
+- O_biooil_wt_pct: 34.09%
+- Carbon_yield_biooil_pct: 32.39%
+- Energy_yield_biooil_pct: 31.76%
+
+Char Properties:
+- HHV_char_MJ_per_kg: 25.24%
+- H_char_wt_pct: 21.31%
+- C_char_wt_pct: 20.82%
+- O_char_wt_pct: 20.8%
+- Energy_yield_char_pct: 22.2%
+- Carbon_yield_char_pct: 19.04%
+
+DATA TYPES
+----------
+- String (categorical): 44 columns
+  Examples: Feedstock, Family_std, reactor, catalyst, process_type, DOI
+  
+- Float (continuous): 91 columns
+  Examples: T_reaction_C, t_residence_min, Yield_biooil_wt_pct, C_feed_wt_pct
+  
+- Integer: 1 column
+  Examples: year
+  
+- Boolean (flags): 9 columns
+  Examples: Ash_adjusted, HHV_feedstock_imputed, Lignin_imputed, N_imputed
+
+UNITS OF MEASUREMENT
+--------------------
+Temperature: °C (degrees Celsius)
+Time: min (minutes)
+Pressure: MPa (megapascals)
+Energy: MJ/kg (megajoules per kilogram)
+Composition: wt% (weight percent, dry basis unless specified)
+Yields: wt% (weight percent of initial dry feedstock)
+Ratios: dimensionless or molar ratios
+Speed: rpm (revolutions per minute)
+Heating rate: °C/min (degrees Celsius per minute)
+
+KEY INDICES AND DERIVED FEATURES
+---------------------------------
+1. Lignin Readiness Index (LRI):
+   Formula: (Lignin/100 + C/60 + HHV/22 + (1/(O/C))/2 + (1/(H/C))/2) / 6
+   Purpose: Composite indicator of feedstock suitability for lignin-focused conversion
+
+2. O/C and H/C Ratios:
+   Van Krevelen diagram coordinates for characterizing biomass and products
+
+3. LCH Closure:
+   Sum of Lignin + Cellulose + Hemicellulose with quality flags
+
+4. Carbon and Energy Recovery:
+   Mass balance tracking for carbon and energy distribution
+
+5. Readiness Indices (LRI_dd, CeRI_dd, HeRI_dd):
+   Data-driven indices for component-specific conversion prediction
+
+QUALITY CONTROL FEATURES
+-------------------------
+- LCH_closure_flag: Polymer mass balance validation
+- sum_CHONSAsh_wt_pct: Elemental mass balance check
+- Imputation tracking: Boolean flags for all imputed values
+- Method documentation: Source/calculation method for derived values
+- Provenance: Complete source publication tracking
+
+DATA NORMALIZATION
+------------------
+- All yields normalized to specified basis (dry, daf, as-received)
+- Elemental compositions on dry or dry-ash-free basis
+- Consistent unit conversions applied across all sources
+- Standardized feedstock family classification
+- Harmonized column naming convention
+
+IMPUTATION METHODOLOGY
+----------------------
+- Random Forest models for continuous features
+- Family-specific median values as fallback
+- Formula-based calculation for stoichiometric features
+- All imputations documented with method flags and source columns
+- ~4% of lignocellulosic composition imputed
+
+SPECIAL NOTES
+-------------
+- Oxygen calculated by difference when not measured (O_method column)
+- HHV estimated via Channiwala-Parikh correlation when needed
+- Catalyst = 'none' explicitly indicates non-catalytic runs
+- Some gas+water yields reported together (flagged accordingly)
+- pressure_reaction_MPa stored as string to accommodate "autogenous"
+
+FILE FORMAT
+-----------
+Primary file: master_dataset.csv
+Encoding: UTF-8
+Delimiter: comma (,)
+Quote character: double quote (")
+Header: Yes (first row contains column names)
+
+RELATED FILES
+-------------
+- metadata.json: Complete metadata in JSON format
+- metadata.xml: Complete metadata in XML format
+- metadata_radar.xml: RADAR repository-compliant metadata
+- column_metadata.csv: Column-level documentation with descriptions and units
+- RADAR_DESCRIPTION.txt: Structured description for repository upload
+- ABSTRACT.txt: Dataset abstract
+
+CITATION
+--------
+When using this dataset, please cite:
+[Citation information to be added after DOI assignment]
+
+FAIR COMPLIANCE
+---------------
+- Findable: Unique DOI, comprehensive metadata, standardized keywords
+- Accessible: Open license (CC-BY-4.0), standard formats (CSV, JSON, XML)
+- Interoperable: Standardized schemas, documented units, machine-readable formats
+- Reusable: Complete provenance, quality flags, imputation documentation
+
+APPLICATIONS
+------------
+- Machine learning model development for process optimization
+- Comparative analysis of conversion technologies
+- Life cycle assessment (LCA) studies
+- Feedstock-to-product relationship modeling
+- Process condition optimization
+- Digital chemistry and data-driven discovery
+
+========================================
+Last Updated: 2026-01
+========================================

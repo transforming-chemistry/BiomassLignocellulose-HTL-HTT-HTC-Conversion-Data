@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:radarDataset xmlns="http://radar-service.eu/schemas/descriptive/radar/v09/radar-elements" xmlns:ns2="http://radar-service.eu/schemas/descriptive/radar/v09/radar-dataset">
+    <identifier identifierType="DOI">10.22000/XXXXX</identifier>
+    <creators>
+        <creator>
+            <creatorName>Elfetni, Seifallah</creatorName>
+            <givenName>Seifallah</givenName>
+            <familyName>Elfetni</familyName>
+            <nameIdentifier schemeURI="http://orcid.org/" nameIdentifierScheme="ORCID">https://orcid.org/0000-0003-3615-627X</nameIdentifier>
+            <creatorAffiliation>CTC gGmbH</creatorAffiliation>
+        </creator>
+    </creators>
+    <title>Biomass HTT/HTL Dataset</title>
+    <publishers>
+        <publisher nameIdentifierScheme="Other">Elfetni, Seifallah</publisher>
+    </publishers>
+    <productionYear>2026</productionYear>
+    <subjectAreas>
+        <subjectArea>
+            <controlledSubjectAreaName>Chemistry</controlledSubjectAreaName>
+        </subjectArea>
+    </subjectAreas>
+    <resource resourceType="Collection">Curated database from the scientific literature</resource>
+    <descriptions>
+        <description descriptionType="Abstract">ABSTRACT:\nThis dataset provides a unified, curated collection of experimental results on the hydrothermal conversion of lignocellulosic and lignin-rich biomass, including hydrothermal treatment (HTT), hydrothermal liquefaction (HTL), and related process variants. The database covers diverse biomass feedstocks, reactor configurations, solvents, catalysts, temperatures, residence times, and operating conditions, with all records normalized to consistent units and yield bases.\n\nMETHOD:\nData were systematically extracted from peer-reviewed literature, digitized when necessary, and harmonized to a standardized schema. All experimental records include comprehensive provenance tracking. Elemental compositions were normalized to dry or dry-ash-free basis. Missing values for key descriptors (e.g., HHV, lignocellulosic composition, elemental ratios) were imputed using Random Forest models or family-specific median values. Quality-control flags document closure checks for elemental and polymer balances. Derived descriptors include O/C and H/C molar ratios, Lignin Readiness Index (LRI), and energy/carbon recovery metrics.\n\nTABLE OF CONTENT:\nThe dataset comprises one primary CSV file (master_dataset.csv) with 3,693 rows (experimental runs) and 145 columns organized into nine groups:\n- Provenance: source publication metadata (DOI, year, author, reference)\n- Feedstock Identity: biomass type and family classification\n- Feedstock Composition: elemental analysis (C, H, O, N, S, Ash), lignocellulosic components (Lignin, Cellulose, Hemicellulose), HHV, elemental ratios\n- Process Conditions: temperature (typically 200-400°C), residence time, pressure, solvent, catalyst, reactor type, heating rate, biomass loading\n- Yields: bio-oil, char, gas, and aqueous phase yields (wt%)\n- Bio-oil Properties: elemental composition, HHV, O/C and H/C ratios, carbon yield\n- Char Properties: elemental composition, HHV, O/C and H/C ratios, carbon yield\n- Tracking: flags and methods documenting imputation sources, measurement methods, and quality-control notes\n- Other: derived descriptors, closure flags, normalized indices\n\nTECHNICAL INFORMATION:\nFormat: CSV (UTF-8 encoding)\nSize: 3,693 rows × 145 columns\nTemporal Coverage: 1982-2026 (40+ years of published research)\nTemperature Range: 200-400°C (typical hydrothermal conditions)\nFeedstock Families: 15+ standardized categories (e.g., Softwood, Hardwood, Agricultural Residue, Herbaceous, Kraft Lignin)\nData Completeness: Core features (C, O, temperature, time) &gt;98%; product yields 70-80%; detailed product composition 20-40%\nSchema: Standardized column names, units, and yield bases; metadata provided in JSON, XML, and CSV formats\n\nTECHNICAL REMARKS:\n- All yields normalized to dry or dry-ash-free feedstock basis as specified in yield_basis column\n- Oxygen content calculated by difference when not directly measured (documented in O_method column)\n- HHV estimated using Channiwala-Parikh correlation when not experimentally measured (flagged in HHV_feedstock_method)\n- Lignocellulosic composition imputed for ~4% of records using ML models trained on family-specific patterns\n- Closure flags (LCH_closure_flag) indicate quality of lignocellulosic balance (sum of Lignin+Cellulose+Hemicellulose)\n- Some studies report combined gas+water yields; separated when possible, otherwise flagged\n- Catalyst = &apos;none&apos; explicitly indicates non-catalytic runs\n- FAIR-compliant: machine-readable metadata, standardized schemas, comprehensive provenance, CC-BY-4.0 license</description>
+    </descriptions>
+    <geoLocations>
+        <geoLocation>
+            <geoLocationCountry>GERMANY</geoLocationCountry>
+        </geoLocation>
+    </geoLocations>
+    <rights>
+        <controlledRights>CC BY 4.0 Attribution</controlledRights>
+    </rights>
+    <rightsHolders>
+        <rightsHolder nameIdentifierScheme="Other">CTC gGmbH</rightsHolder>
+    </rightsHolders>
+</ns2:radarDataset>

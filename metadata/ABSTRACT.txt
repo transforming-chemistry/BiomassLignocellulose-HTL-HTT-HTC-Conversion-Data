@@ -1,0 +1,11 @@
+Biomass HTT/HTL Dataset - Abstract
+
+This dataset provides a unified, curated collection of experimental results on the hydrothermal conversion of lignocellulosic and lignin-rich biomass, including hydrothermal treatment (HTT), hydrothermal liquefaction (HTL), and related process variants. 
+
+It comprises 3,693 experimental runs extracted from peer-reviewed literature spanning over 40 years (1982-2026), encompassing 145 features including feedstock composition, reaction conditions, product yields, and energy/carbon recovery metrics. 
+
+The database covers diverse biomass feedstocks, reactor configurations, solvents, catalysts, temperatures (typically 200-400°C), residence times, and operating conditions, with all records normalized to consistent units and yield bases. 
+
+The dataset includes comprehensive provenance tracking, quality-control flags, and documentation of imputed values. Beyond raw experimental data, it provides derived descriptors such as elemental ratios (O/C, H/C), lignocellulosic composition fractions, energy yields, carbon recoveries, and composite indicators (e.g., Lignin Readiness Index). 
+
+With standardized schemas and column-level metadata, the dataset is designed to support machine-learning model development, comparative process analysis, life-cycle assessment (LCA) studies, and serves as a FAIR-compliant resource for the biomass conversion, sustainable chemistry, and digital chemistry communities.

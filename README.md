@@ -1,261 +1,156 @@
-# Biomass HTT/HTL Dataset (Version 1.0)
+# Biomass HTT/HTL Dataset
 
-## 1. Overview
+## Overview
 
-This dataset compiles experimental data on hydrothermal treatment and liquefaction (HTT/HTL) of lignocellulosic and lignin-rich feedstocks. It contains **3,386 experimental runs** extracted and curated from peer-reviewed literature published between **1993 and 2025**.
+Comprehensive dataset of hydrothermal treatment and liquefaction experiments for lignocellulosic and lignin-rich biomass. Contains **3,693 experimental runs** from peer-reviewed literature (1982-2026).
 
-The primary goals are:
-- Provide a unified, machine-learning-ready dataset for predicting yields and product properties
-- Support hybrid ML–LCA workflows for biomass conversion systems
-- Enable systematic comparison and analysis of hydrothermal processing conditions
+**Key features:**
+- HTL, HTC, and solvothermal conversion processes
+- 145 features: feedstock composition, process conditions, product yields, energy recovery
+- Comprehensive quality controls and provenance tracking
+- Machine learning-ready format
 
-The dataset covers:
-- **Hydrothermal liquefaction (HTL)** – subcritical and supercritical
-- **Hydrothermal carbonization (HTC)**
-- **Solvothermal liquefaction**
-- **Related thermal conversion processes**
-
-## 2. How to cite
-
-If you use this dataset, please cite:
-
-> Seifallah El Fetni et al., "Biomass HTT/HTL Dataset (Version 1.0)", Zenodo, 2025, DOI: [...].
-
-See also `CITATION.cff` in this repository for machine-readable citation metadata.
-
-## 3. File contents
-
-- `master_dataset.csv` – Main dataset, one row per experiment (3,386 rows)
-- `metadata.json` – Machine-readable schema and dataset metadata
-- `schema_description.pdf` – Human-readable description of all columns
-- `CITATION.cff` – Citation metadata for tools (GitHub, Zotero, etc.)
-- `LICENSE` – License information (CC BY 4.0)
-- `notebooks/load_and_inspect.ipynb` – Example notebook to load and inspect the dataset
-- `modules/` – Python utilities for data visualization and QA
-
-## 4. Column groups and units
-
-Unless otherwise noted:
-
-- **Temperatures**: `T_reaction_C` → **°C**  
-- **Times**: `t_residence_min`, `t_ramp_min` → **minutes**  
-- **Pressures**: `pressure_reaction_MPa` → **MPa**  
-- **Elemental composition**: `*_feed_wt_pct`, `*_biooil_wt_pct`, `*_char_wt_pct` → **wt% dry basis**  
-- **Moisture**: `Moisture_min_wt_pct_ar`, `Moisture_max_wt_pct_ar` → **wt% as received**  
-- **Yields**: `Yield_*_wt_pct` → **wt% of initial dry feedstock**  
-- **Energy yields**: `Energy_yield_*_pct` → **% of initial feedstock energy (HHV·mass)**  
-- **Carbon yields**: `Carbon_yield_*_pct` → **% of initial feedstock carbon**  
-- **Heating values**: `HHV_*_MJ_per_kg` → **MJ/kg (dry basis)**  
-- **Van Krevelen ratios**: `O_C_*_molar`, `H_C_*_molar` → **molar ratio (dimensionless)**  
-
-### 4.1 Provenance and identifiers
-
-- `paper_title` – Title of source publication  
-- `DOI` – Digital Object Identifier of the source paper  
-- `year` – Publication year  
-- `Provenance` – Origin of the data point (table, figure, digitized, etc.)  
-- `Ref` – Internal reference key  
-
-### 4.2 Feedstock characterization
-
-**Identity:**
-- `Feedstock` – Feedstock name as reported in source  
-- `Family_std` – Standardized feedstock family (Woody Biomass, Agricultural Residues, etc.)
-
-**Ultimate analysis (wt% dry basis):**
-- `C_feed_wt_pct`, `H_feed_wt_pct`, `O_feed_wt_pct`, `N_feed_wt_pct`, `S_feed_wt_pct`, `Ash_feed_wt_pct`
-
-**Structural composition (wt% dry basis):**
-- `Lignin_feed_wt_pct`, `Cellulose_feed_wt_pct`, `Hemicellulose_feed_wt_pct`, `Extractives_feed_wt_pct`
-
-**Moisture (wt% as received):**
-- `Moisture_min_wt_pct_ar`, `Moisture_max_wt_pct_ar`
-
-**Derived properties:**
-- `O_C_feed_molar`, `H_C_feed_molar` – Van Krevelen atomic ratios  
-- `HHV_feed_MJ_per_kg` – Higher heating value [MJ/kg dry]  
-- `LRI` – Lignin Readiness Index (composite feedstock quality metric)
-- `LRI_imputed`, `LRI_imputed_source` – Imputed LRI values and their source
-
-### 4.3 Process conditions
-
-**Process type:**
-- `process_type`, `process_subtype` – HTL, HTC, solvolysis, etc.  
-- `reactor` – Reactor configuration  
-- `atmosphere` – Gas atmosphere (N₂, CO₂, etc.)  
-- `solvent_or_medium` – Main solvent/medium used
-
-**Thermal conditions:**
-- `T_reaction_C` – Reaction temperature [°C]  
-- `t_residence_min` – Isothermal residence time [min]  
-- `t_ramp_min` – Heating/ramp time to target temperature [min]  
-- `heating_rate_C_per_min` – Heating rate [°C/min]
-
-**Feed preparation:**
-- `IC_feed_wt_pct_slurry` – Initial feed solids concentration in slurry [wt%]  
-- `water_biomass_ratio_kg_kg` – Water:biomass mass ratio [kg/kg]
-
-**Operating conditions:**
-- `pressure_reaction_MPa` – Reaction pressure [MPa]  
-- `stirring_rpm` – Stirring speed [rpm]
-
-**Catalyst:**
-- `catalyst` – Catalyst name; `"none"` used for blank (non-catalytic) runs  
-- `cat_biomass_ratio_kg_kg` – Catalyst:biomass mass ratio [kg/kg]; 0.0 for blank runs
-
-**Post-processing:**
-- `yield_basis` – Original yield basis text (dry, daf, ar)  
-- `separation_method` – Post-reaction separation method
-
-### 4.4 Product yields and distributions
-
-**Mass yields (wt% of dry feedstock):**
-- `Yield_biooil_wt_pct` – Bio-oil/biocrude yield  
-- `Yield_char_wt_pct` – Biochar/hydrochar yield  
-- `Yield_aqueous_wt_pct` – Aqueous phase yield  
-- `Yield_gas_wt_pct` – Gas yield  
-- `Yield_gas_water_wt_pct` – Combined gas + water yield
-
-**Energy recovery (% of initial feedstock energy):**
-- `Energy_yield_biooil_pct` – Energy in bio-oil  
-- `Energy_yield_char_pct` – Energy in char
-
-**Carbon recovery (% of initial feedstock carbon):**
-- `Carbon_yield_biooil_pct` – Carbon in bio-oil  
-- `Carbon_yield_char_pct` – Carbon in char
-
-### 4.5 Bio-oil properties
-
-**Heating value:**
-- `HHV_biooil_MJ_per_kg` – Higher heating value [MJ/kg dry]
-
-**Elemental composition (wt% dry basis):**
-- `C_biooil_wt_pct`, `H_biooil_wt_pct`, `O_biooil_wt_pct`, `N_biooil_wt_pct`, `S_biooil_wt_pct`
-
-**Van Krevelen ratios (molar, dimensionless):**
-- `O_C_biooil_molar`, `H_C_biooil_molar`
-
-### 4.6 Char properties
-
-**Heating value:**
-- `HHV_char_MJ_per_kg` – Higher heating value [MJ/kg dry]
-
-**Elemental composition (wt% dry basis):**
-- `C_char_wt_pct`, `H_char_wt_pct`, `O_char_wt_pct`, `N_char_wt_pct`, `S_char_wt_pct`
-
-**Van Krevelen ratios (molar, dimensionless):**
-- `O_C_char_molar`, `H_C_char_molar`
-
-### 4.7 Tracking columns (data provenance)
-
-Located at the end of each row:
-
-- `*_method` – Measurement or estimation method (e.g., `C_method`, `HHV_feedstock_method`)
-- `*_Note` – Additional notes about the measurement  
-- `*_imputed` – Boolean flags for imputed values (e.g., `Lignin_imputed`, `Ash_imputed`)
-- `*_source` – Source of imputed values  
-- `extra` – JSON field with additional non-standard information from source
-
-## 5. Known limitations
-
-- **Incomplete data**: Not all experiments report all properties. Column completeness varies (see `schema_description.pdf`).
-- **Imputed values**: Where values were imputed, this is flagged by `*_imputed` and `*_method` columns.
-- **Pressure reporting**: Many studies report "autogenic" without exact values; flagged in `pressure_reaction_MPa`.
-- **Yield basis harmonization**: All yields normalized to dry feedstock basis where possible.
-- **Critical applications**: Users should consult source papers for precise experimental details.
-
-## 6. Data quality and validation
-
-This dataset includes:
-- Systematic quality checks for mass balance closure (C, H, O, N, S, Ash)
-- Energy balance validation
-- Outlier detection and flagging
-- Van Krevelen diagram validation for feedstock and product compositions
-- Cross-validation with literature values
-
-Imputation methods used:
-- **ML-based**: Random Forest models for Lignin, Ash, HHV (when high R² achieved)
-- **Formula-based**: Dulong formula for HHV, stoichiometric calculations for atomic ratios
-- **Literature**: Feedstock composition from established databases
-- **Alias propagation**: Same feedstock across papers
-
-## 7. Usage examples
-
-### Basic loading and inspection (Python)
+## Quick Start
 
 ```python
 import pandas as pd
 
 df = pd.read_csv("master_dataset.csv")
-print(f"Loaded {len(df)} experiments")
-print(f"Columns: {len(df.columns)}")
-print(f"\nProcess types: {df['process_type'].value_counts()}")
-print(f"Feedstock families: {df['Family_std'].nunique()} unique families")
+print(f"{len(df)} experiments | {len(df.columns)} columns")
+print(f"Years: {df['year'].min()}-{df['year'].max()}")
 ```
 
-### Filter HTL experiments above 300°C
+## Dataset Structure
+
+```
+master_dataset.csv      Main dataset (3,693 rows × 145 columns)
+metadata/               Metadata files
+  ├── metadata.json     Schema and completeness stats
+  ├── metadata.xml      XML format
+  ├── metadata_radar.xml RADAR repository format
+  ├── column_metadata.csv Column documentation
+  ├── technical_metadata.txt Technical specifications
+  ├── ABSTRACT.txt      Dataset abstract
+  ├── RADAR_DESCRIPTION.txt Repository description
+  └── generate_metadata.py Metadata generator
+modules/                Analysis utilities
+notebooks/              Example notebooks
+LICENSE                 CC BY 4.0
+CITATION.cff           Citation metadata
+```
+
+## Data Organization
+
+### Process Conditions
+- Temperature: 200-400°C (typical)
+- Time: residence + ramp times
+- Reactor type, atmosphere, solvent
+- Catalyst loading, biomass concentration
+- Pressure (autogenous or specified)
+
+### Feedstock Characterization
+- Ultimate analysis: C, H, O, N, S, Ash (wt%)
+- Structural composition: Lignin, Cellulose, Hemicellulose (wt%)
+- Heating value (HHV)
+- Van Krevelen ratios (O/C, H/C)
+- Lignin Readiness Index (LRI)
+
+### Product Properties
+- Yields: bio-oil, char, gas, aqueous (wt%)
+- Energy recovery (%)
+- Carbon recovery (%)
+- Product composition and heating values
+
+### Quality Assurance
+- Provenance tracking for all data points
+- Imputation flags and methods
+- Mass balance checks
+- Completeness indicators
+
+## Units
+
+| Property | Unit | Basis |
+|----------|------|-------|
+| Temperature | °C | - |
+| Time | min | - |
+| Pressure | MPa | - |
+| Composition | wt% | dry or daf |
+| Yields | wt% | dry feedstock |
+| Energy | MJ/kg | dry basis |
+| Ratios | - | molar |
+
+## Data Quality
+
+**Completeness** (selected features):
+- Core features (C, O, T, time): >98%
+- Lignocellulosic composition: ~96%
+- Product yields: 70-80%
+- Product composition: 20-40%
+
+**Imputation methods:**
+- Random Forest models for structural components
+- Channiwala-Parikh correlation for HHV
+- Family-specific median values
+- All imputations flagged and documented
+
+## Usage Examples
+
+### Filter HTL experiments
 
 ```python
-htl_high_temp = df[
-    (df['process_subtype'].str.contains('HTL', na=False)) & 
-    (df['T_reaction_C'] >= 300)
-]
-print(f"HTL experiments ≥300°C: {len(htl_high_temp)}")
+htl = df[df['process_subtype'].str.contains('HTL', na=False)]
+high_temp = htl[htl['T_reaction_C'] >= 350]
+```
+
+### Analyze by feedstock family
+
+```python
+by_family = df.groupby('Family_std').agg({
+    'Yield_biooil_wt_pct': 'mean',
+    'Energy_yield_biooil_pct': 'mean'
+})
 ```
 
 ### Check data completeness
 
 ```python
-completeness = (df.notna().sum() / len(df) * 100).sort_values(ascending=False)
-print("Top 10 most complete columns:")
-print(completeness.head(10))
+completeness = df.notna().sum() / len(df) * 100
+print(completeness.sort_values(ascending=False).head(10))
 ```
 
-See `notebooks/load_and_inspect.ipynb` for more detailed examples.
+## License
 
-## 8. License and reuse
+**CC BY 4.0** (Creative Commons Attribution 4.0 International)
 
-This dataset is released under **CC BY 4.0** (Creative Commons Attribution 4.0 International).
+You may share and adapt this dataset with appropriate attribution.
 
-You are free to:
-- **Share** – copy and redistribute the material
-- **Adapt** – remix, transform, and build upon the material
+## Citation
 
-Under the following terms:
-- **Attribution** – You must give appropriate credit, provide a link to the license, and indicate if changes were made
+```bibtex
+@dataset{elfetni2026biomass,
+  author    = {El Fetni, Seifallah},
+  title     = {Biomass HTT/HTL Dataset},
+  year      = {2026},
+  publisher = {RADAR},
+  version   = {1.0.0},
+  doi       = {10.22000/XXXXX}
+}
+```
 
-Full license text: https://creativecommons.org/licenses/by/4.0/
+## Contact
 
-## 9. Contact and contributions
+**Seifallah El Fetni**  
+CTC gGmbH  
+ORCID: [0000-0003-3615-627X](https://orcid.org/0000-0003-3615-627X)
 
-**Maintainer:** Seifallah El Fetni  
-**Affiliation:** CTC gGmbH  
-**Email:** []
+For issues or contributions, please open an issue or contact directly.
 
-For issues, corrections, or contributions:
-- Open an issue on GitHub
-- Contact the maintainer directly
-- Submit a pull request with corrections
+## Acknowledgments
 
-## 10. Acknowledgments
+Data compiled from peer-reviewed literature. Thanks to all original authors for their research contributions.
 
-This dataset was compiled from peer-reviewed literature. We thank all original authors for their contributions to biomass conversion research.
-
-Data extraction, curation, and validation performed using:
+**Tools used:**
 - Python (pandas, scikit-learn)
-- SQLite for relational database management
-- Custom QA pipelines for validation
-
-## 11. Version history
-
-- **v1.0** (2025-01-XX): Initial public release
-  - 3,386 experimental runs
-  - 90+ features per experiment
-  - Comprehensive quality assurance and validation
-
-## 12. Others (git)
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin url 
-git push -u origin master
+- Custom QA pipelines
+- Van Krevelen diagram validation
+- Mass and energy balance checks

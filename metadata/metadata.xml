@@ -1,0 +1,1359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset_metadata>
+  <title>Biomass HTT/HTL Dataset</title>
+  <version>1.0.0</version>
+  <description>This dataset provides a unified, curated collection of experimental results on the hydrothermal conversion of lignocellulosic and lignin-rich biomass, including hydrothermal treatment (HTT), hydrothermal liquefaction (HTL), and related process variants. It comprises 3,693 experimental runs extracted from peer-reviewed literature spanning over 40 years (1982-2026), encompassing 145 features including feedstock composition, reaction conditions, product yields, and energy/carbon recovery metrics. The database covers diverse biomass feedstocks, reactor configurations, solvents, catalysts, temperatures (typically 200-400°C), residence times, and operating conditions, with all records normalized to consistent units and yield bases. The dataset includes comprehensive provenance tracking, quality-control flags, and documentation of imputed values. Beyond raw experimental data, it provides derived descriptors such as elemental ratios (O/C, H/C), lignocellulosic composition fractions, energy yields, carbon recoveries, and composite indicators (e.g., Lignin Readiness Index). With standardized schemas and column-level metadata, the dataset is designed to support machine-learning model development, comparative process analysis, life-cycle assessment (LCA) studies, and serves as a FAIR-compliant resource for the biomass conversion, sustainable chemistry, and digital chemistry communities.</description>
+  <license>CC-BY-4.0</license>
+  <created>2026-01-06</created>
+  <n_rows>3693</n_rows>
+  <n_columns>145</n_columns>
+  <year_range>
+    <min>1982</min>
+    <max>2026</max>
+  </year_range>
+  <contact>
+    <name>Seifallah El Fetni</name>
+    <affiliation>CTC gGmbH</affiliation>
+    <email>your.email@institution.de</email>
+  </contact>
+  <keywords>
+    <keyword>biomass</keyword>
+    <keyword>hydrothermal liquefaction</keyword>
+    <keyword>hydrothermal treatment</keyword>
+    <keyword>HTL</keyword>
+    <keyword>HTC</keyword>
+    <keyword>bio-oil</keyword>
+    <keyword>biochar</keyword>
+    <keyword>lignocellulosic biomass</keyword>
+    <keyword>lignin</keyword>
+    <keyword>machine learning</keyword>
+    <keyword>LCA</keyword>
+  </keywords>
+  <column_groups>
+    <group name="yields">
+      <column>Yield_biooil_wt_pct</column>
+      <column>Yield_char_wt_pct</column>
+      <column>Yield_aqueous_wt_pct</column>
+      <column>Yield_gas_wt_pct</column>
+      <column>Yield_gas_water_wt_pct</column>
+      <column>Energy_yield_biooil_pct</column>
+      <column>Energy_yield_char_pct</column>
+    </group>
+    <group name="char_properties">
+      <column>Carbon_yield_char_pct</column>
+      <column>HHV_char_MJ_per_kg</column>
+      <column>C_char_wt_pct</column>
+      <column>H_char_wt_pct</column>
+      <column>O_char_wt_pct</column>
+      <column>N_char_wt_pct</column>
+      <column>S_char_wt_pct</column>
+      <column>O_C_char_molar</column>
+      <column>H_C_char_molar</column>
+    </group>
+    <group name="tracking">
+      <column>LRI_imputed</column>
+      <column>C_Note</column>
+      <column>C_method</column>
+      <column>O/C_Note</column>
+      <column>OC_method</column>
+      <column>H/C_Note</column>
+      <column>HC_method</column>
+      <column>t_note</column>
+      <column>HHV_feedstock_method</column>
+      <column>HHV_feedstock_imputed</column>
+      <column>HHV_biooil_method</column>
+      <column>HHV_biochar_method</column>
+      <column>S_method</column>
+      <column>S_biooil_method</column>
+      <column>S_biochar_method</column>
+      <column>Lignin_method</column>
+      <column>Lignin_imputed</column>
+      <column>cellulose_method</column>
+      <column>cellulose_imputed</column>
+      <column>hemicellulose_method</column>
+      <column>hemicellulose_imputed</column>
+      <column>Ash_method</column>
+      <column>Ash_imputed</column>
+      <column>LRI_imputed_source</column>
+    </group>
+    <group name="provenance">
+      <column>paper_title</column>
+      <column>DOI</column>
+      <column>year</column>
+      <column>Provenance</column>
+      <column>Ref</column>
+      <column>process_type</column>
+    </group>
+    <group name="feedstock_identity">
+      <column>Feedstock</column>
+      <column>Family_std</column>
+    </group>
+    <group name="process_conditions">
+      <column>process_subtype</column>
+      <column>reactor</column>
+      <column>atmosphere</column>
+      <column>solvent_or_medium</column>
+      <column>T_reaction_C</column>
+      <column>t_residence_min</column>
+      <column>t_ramp_min</column>
+      <column>IC_feed_wt_pct_slurry</column>
+      <column>pressure_reaction_MPa</column>
+      <column>heating_rate_C_per_min</column>
+      <column>stirring_rpm</column>
+      <column>water_biomass_ratio_kg_kg</column>
+      <column>catalyst</column>
+      <column>cat_biomass_ratio_kg_kg</column>
+      <column>yield_basis</column>
+      <column>separation_method</column>
+    </group>
+    <group name="feedstock_composition">
+      <column>C_feed_wt_pct</column>
+      <column>H_feed_wt_pct</column>
+      <column>O_feed_wt_pct</column>
+      <column>N_feed_wt_pct</column>
+      <column>S_feed_wt_pct</column>
+      <column>Ash_feed_wt_pct</column>
+      <column>Lignin_feed_wt_pct</column>
+      <column>Cellulose_feed_wt_pct</column>
+      <column>Hemicellulose_feed_wt_pct</column>
+      <column>Extractives_feed_wt_pct</column>
+      <column>Moisture_min_wt_pct_ar</column>
+      <column>Moisture_max_wt_pct_ar</column>
+      <column>O_C_feed_molar</column>
+      <column>H_C_feed_molar</column>
+      <column>HHV_feed_MJ_per_kg</column>
+      <column>LRI</column>
+    </group>
+    <group name="biooil_properties">
+      <column>Carbon_yield_biooil_pct</column>
+      <column>HHV_biooil_MJ_per_kg</column>
+      <column>C_biooil_wt_pct</column>
+      <column>H_biooil_wt_pct</column>
+      <column>O_biooil_wt_pct</column>
+      <column>N_biooil_wt_pct</column>
+      <column>S_biooil_wt_pct</column>
+      <column>O_C_biooil_molar</column>
+      <column>H_C_biooil_molar</column>
+    </group>
+    <group name="other">
+      <column>LCH_total_wt_pct</column>
+      <column>Lignin_share_pct</column>
+      <column>Holo_share_pct</column>
+      <column>Lignin_from_LCH_wt_pct</column>
+      <column>Cellulose_from_LCH_wt_pct</column>
+      <column>Hemicellulose_from_LCH_wt_pct</column>
+      <column>sum_LCH_wt_pct</column>
+      <column>sum_CHONSAsh_wt_pct</column>
+      <column>sum_CHONS_wt_pct</column>
+      <column>LCH_closure_flag</column>
+      <column>Ash_adjusted</column>
+      <column>Ash_adjustment</column>
+      <column>LRI_dd</column>
+      <column>CeRI_dd</column>
+      <column>HeRI_dd</column>
+      <column>LCH_total_imputed_wt_pct</column>
+      <column>Lignin_imputed_from_LCH</column>
+      <column>cellulose_imputed_from_LCH</column>
+      <column>hemicellulose_imputed_from_LCH</column>
+      <column>CeFrac_dd</column>
+      <column>HRI_dd</column>
+      <column>CRI_dd</column>
+      <column>HeRI_comp_dd</column>
+      <column>L_share_idx</column>
+      <column>CeFrac_idx</column>
+      <column>Lignin_HHV_est</column>
+      <column>Lignin_C_est</column>
+      <column>Lignin_est</column>
+      <column>Holocellulose</column>
+      <column>CeFrac_mb</column>
+      <column>inv_OC</column>
+      <column>inv_HC</column>
+      <column>ash_inv</column>
+      <column>C_norm</column>
+      <column>HHV_norm</column>
+      <column>LPI</column>
+      <column>HoPI</column>
+      <column>O_Note</column>
+      <column>O_method</column>
+      <column>N_imputed</column>
+      <column>N_method</column>
+      <column>LRI_dd_source</column>
+      <column>CeRI_dd_source</column>
+      <column>HeRI_dd_source</column>
+      <column>LCH_total_imputed_source</column>
+      <column>Lignin_imputed_from_LCH_source</column>
+      <column>cellulose_imputed_from_LCH_source</column>
+      <column>hemicellulose_imputed_from_LCH_source</column>
+      <column>CeFrac_dd_source</column>
+      <column>HRI_dd_source</column>
+      <column>CRI_dd_source</column>
+      <column>HeRI_comp_dd_source</column>
+      <column>L_share_idx_source</column>
+      <column>CeFrac_idx_source</column>
+      <column>Holocellulose_source</column>
+      <column>CeFrac_mb_source</column>
+    </group>
+  </column_groups>
+  <columns>
+    <column>
+      <name>paper_title</name>
+      <description>Title of the source publication</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>provenance</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>DOI</name>
+      <description>Digital Object Identifier of the source publication</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>provenance</group>
+      <completeness_pct>99.13</completeness_pct>
+    </column>
+    <column>
+      <name>year</name>
+      <description>Publication year</description>
+      <unit null="true" />
+      <dtype>integer</dtype>
+      <group>provenance</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>Provenance</name>
+      <description>Origin of the data row (table, figure, manual digitization, etc.)</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>provenance</group>
+      <completeness_pct>99.19</completeness_pct>
+    </column>
+    <column>
+      <name>Ref</name>
+      <description>Internal reference identifier</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>provenance</group>
+      <completeness_pct>96.75</completeness_pct>
+    </column>
+    <column>
+      <name>Feedstock</name>
+      <description>Feedstock name as reported</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>feedstock_identity</group>
+      <completeness_pct>99.86</completeness_pct>
+    </column>
+    <column>
+      <name>Family_std</name>
+      <description>Standardized feedstock family label</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>feedstock_identity</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>C_feed_wt_pct</name>
+      <description>Carbon content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>H_feed_wt_pct</name>
+      <description>Hydrogen content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>98.7</completeness_pct>
+    </column>
+    <column>
+      <name>O_feed_wt_pct</name>
+      <description>Oxygen content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>N_feed_wt_pct</name>
+      <description>Nitrogen content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>78.53</completeness_pct>
+    </column>
+    <column>
+      <name>S_feed_wt_pct</name>
+      <description>Sulfur content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>54.78</completeness_pct>
+    </column>
+    <column>
+      <name>Ash_feed_wt_pct</name>
+      <description>Ash content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>99.68</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_feed_wt_pct</name>
+      <description>Lignin content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>96.18</completeness_pct>
+    </column>
+    <column>
+      <name>Cellulose_feed_wt_pct</name>
+      <description>Cellulose content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>95.61</completeness_pct>
+    </column>
+    <column>
+      <name>Hemicellulose_feed_wt_pct</name>
+      <description>Hemicellulose content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>95.61</completeness_pct>
+    </column>
+    <column>
+      <name>Extractives_feed_wt_pct</name>
+      <description>Extractives content of feedstock (dry basis)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>42.43</completeness_pct>
+    </column>
+    <column>
+      <name>LCH_total_wt_pct</name>
+      <description>Sum of Lignin + Cellulose + Hemicellulose</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>95.04</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_share_pct</name>
+      <description>Lignin as percentage of total structural polysaccharides (Lignin/LCH_total * 100)</description>
+      <unit>% of LCH</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>94.88</completeness_pct>
+    </column>
+    <column>
+      <name>Holo_share_pct</name>
+      <description>Holocellulose as percentage of LCH ((Cellulose+Hemicellulose)/LCH_total * 100)</description>
+      <unit>% of LCH</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>94.88</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_from_LCH_wt_pct</name>
+      <description>Lignin reconstructed from LCH_total * Lignin_share</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>7.66</completeness_pct>
+    </column>
+    <column>
+      <name>Cellulose_from_LCH_wt_pct</name>
+      <description>Cellulose reconstructed from LCH features and family median ratio</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>7.66</completeness_pct>
+    </column>
+    <column>
+      <name>Hemicellulose_from_LCH_wt_pct</name>
+      <description>Hemicellulose reconstructed from LCH features and family median ratio</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>7.66</completeness_pct>
+    </column>
+    <column>
+      <name>Moisture_min_wt_pct_ar</name>
+      <description>Minimum reported moisture content (as received)</description>
+      <unit>wt% as received</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>2.0</completeness_pct>
+    </column>
+    <column>
+      <name>Moisture_max_wt_pct_ar</name>
+      <description>Maximum reported moisture content (as received)</description>
+      <unit>wt% as received</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>2.0</completeness_pct>
+    </column>
+    <column>
+      <name>O_C_feed_molar</name>
+      <description>O/C molar ratio of feedstock</description>
+      <unit>molar ratio</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>H_C_feed_molar</name>
+      <description>H/C molar ratio of feedstock</description>
+      <unit>molar ratio</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HHV_feed_MJ_per_kg</name>
+      <description>Higher heating value of feedstock (dry basis)</description>
+      <unit>MJ/kg</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>LRI</name>
+      <description>Lignin Readiness Index: Formula = (Lignin/100 + C/60 + HHV/22 + (1/(O/C))/2 + (1/(H/C))/2) / 6</description>
+      <unit>dimensionless</unit>
+      <dtype>float</dtype>
+      <group>feedstock_composition</group>
+      <completeness_pct>95.04</completeness_pct>
+    </column>
+    <column>
+      <name>LRI_imputed</name>
+      <description>Imputed LRI using ML model or formula-based calculation</description>
+      <unit>dimensionless</unit>
+      <dtype>float</dtype>
+      <group>tracking</group>
+      <completeness_pct>98.7</completeness_pct>
+    </column>
+    <column>
+      <name>sum_LCH_wt_pct</name>
+      <description>Sum of Lignin + Cellulose + Hemicellulose for closure check</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>96.18</completeness_pct>
+    </column>
+    <column>
+      <name>sum_CHONSAsh_wt_pct</name>
+      <description>Sum of C+H+O+N+S+Ash for elemental closure check</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>sum_CHONS_wt_pct</name>
+      <description>Sum of C+H+O+N+S (excluding Ash) for elemental closure check</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>LCH_closure_flag</name>
+      <description>Quality flag for polymer closure (OK, LCH&amp;gt;105, LCH&amp;gt;110, LCH&amp;lt;0)</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>process_type</name>
+      <description>High-level process type (HTL, HTC, pyrolysis, etc.)</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>provenance</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>process_subtype</name>
+      <description>More specific process subtype</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>reactor</name>
+      <description>Reactor type/configuration</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>92.5</completeness_pct>
+    </column>
+    <column>
+      <name>atmosphere</name>
+      <description>Gas atmosphere (N2, CO2, etc.)</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>65.88</completeness_pct>
+    </column>
+    <column>
+      <name>solvent_or_medium</name>
+      <description>Primary solvent or reaction medium</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>99.86</completeness_pct>
+    </column>
+    <column>
+      <name>T_reaction_C</name>
+      <description>Reaction temperature</description>
+      <unit>°C</unit>
+      <dtype>float</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>99.97</completeness_pct>
+    </column>
+    <column>
+      <name>t_residence_min</name>
+      <description>Isothermal residence/holding time at T</description>
+      <unit>min</unit>
+      <dtype>float</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>99.65</completeness_pct>
+    </column>
+    <column>
+      <name>t_ramp_min</name>
+      <description>Heating/ramp time from ambient to T</description>
+      <unit>min</unit>
+      <dtype>float</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>0.19</completeness_pct>
+    </column>
+    <column>
+      <name>IC_feed_wt_pct_slurry</name>
+      <description>Initial solids concentration of feed in slurry</description>
+      <unit>wt% of slurry</unit>
+      <dtype>float</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>98.08</completeness_pct>
+    </column>
+    <column>
+      <name>pressure_reaction_MPa</name>
+      <description>Reaction pressure (autogenous or specified)</description>
+      <unit>MPa</unit>
+      <dtype>string</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>heating_rate_C_per_min</name>
+      <description>Average heating rate to T</description>
+      <unit>°C/min</unit>
+      <dtype>float</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>24.51</completeness_pct>
+    </column>
+    <column>
+      <name>stirring_rpm</name>
+      <description>Stirring / agitation speed</description>
+      <unit>rpm</unit>
+      <dtype>float</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>21.18</completeness_pct>
+    </column>
+    <column>
+      <name>water_biomass_ratio_kg_kg</name>
+      <description>Water-to-biomass ratio</description>
+      <unit>kg water / kg biomass</unit>
+      <dtype>float</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>90.74</completeness_pct>
+    </column>
+    <column>
+      <name>catalyst</name>
+      <description>Catalyst name or system; explicitly &amp;apos;none&amp;apos; when no catalyst used</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>cat_biomass_ratio_kg_kg</name>
+      <description>Catalyst-to-biomass ratio</description>
+      <unit>kg catalyst / kg biomass</unit>
+      <dtype>float</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>98.62</completeness_pct>
+    </column>
+    <column>
+      <name>yield_basis</name>
+      <description>Normalized yield basis (dry, daf, as-received, etc.)</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>99.86</completeness_pct>
+    </column>
+    <column>
+      <name>separation_method</name>
+      <description>Post-reaction separation / workup method</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>process_conditions</group>
+      <completeness_pct>90.69</completeness_pct>
+    </column>
+    <column>
+      <name>Yield_biooil_wt_pct</name>
+      <description>Bio-oil / biocrude yield</description>
+      <unit>wt% of initial dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>yields</group>
+      <completeness_pct>80.67</completeness_pct>
+    </column>
+    <column>
+      <name>Yield_char_wt_pct</name>
+      <description>Char / solid residue yield</description>
+      <unit>wt% of initial dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>yields</group>
+      <completeness_pct>71.41</completeness_pct>
+    </column>
+    <column>
+      <name>Yield_aqueous_wt_pct</name>
+      <description>Aqueous phase yield</description>
+      <unit>wt% of initial dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>yields</group>
+      <completeness_pct>26.1</completeness_pct>
+    </column>
+    <column>
+      <name>Yield_gas_wt_pct</name>
+      <description>Gas yield</description>
+      <unit>wt% of initial dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>yields</group>
+      <completeness_pct>30.73</completeness_pct>
+    </column>
+    <column>
+      <name>Yield_gas_water_wt_pct</name>
+      <description>Gas + water / closure yield term</description>
+      <unit>wt% of initial dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>yields</group>
+      <completeness_pct>14.46</completeness_pct>
+    </column>
+    <column>
+      <name>Energy_yield_biooil_pct</name>
+      <description>Energy recovery in bio-oil</description>
+      <unit>% of initial feedstock energy</unit>
+      <dtype>float</dtype>
+      <group>yields</group>
+      <completeness_pct>31.76</completeness_pct>
+    </column>
+    <column>
+      <name>Energy_yield_char_pct</name>
+      <description>Energy recovery in char / solid</description>
+      <unit>% of initial feedstock energy</unit>
+      <dtype>float</dtype>
+      <group>yields</group>
+      <completeness_pct>22.2</completeness_pct>
+    </column>
+    <column>
+      <name>Carbon_yield_biooil_pct</name>
+      <description>Carbon recovery in bio-oil</description>
+      <unit>% of initial feedstock carbon</unit>
+      <dtype>float</dtype>
+      <group>biooil_properties</group>
+      <completeness_pct>32.39</completeness_pct>
+    </column>
+    <column>
+      <name>Carbon_yield_char_pct</name>
+      <description>Carbon recovery in char / solid</description>
+      <unit>% of initial feedstock carbon</unit>
+      <dtype>float</dtype>
+      <group>char_properties</group>
+      <completeness_pct>19.04</completeness_pct>
+    </column>
+    <column>
+      <name>HHV_biooil_MJ_per_kg</name>
+      <description>Higher heating value of bio-oil</description>
+      <unit>MJ/kg</unit>
+      <dtype>float</dtype>
+      <group>biooil_properties</group>
+      <completeness_pct>36.61</completeness_pct>
+    </column>
+    <column>
+      <name>C_biooil_wt_pct</name>
+      <description>Carbon content of bio-oil</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>biooil_properties</group>
+      <completeness_pct>36.15</completeness_pct>
+    </column>
+    <column>
+      <name>H_biooil_wt_pct</name>
+      <description>Hydrogen content of bio-oil</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>biooil_properties</group>
+      <completeness_pct>35.07</completeness_pct>
+    </column>
+    <column>
+      <name>O_biooil_wt_pct</name>
+      <description>Oxygen content of bio-oil</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>biooil_properties</group>
+      <completeness_pct>34.09</completeness_pct>
+    </column>
+    <column>
+      <name>N_biooil_wt_pct</name>
+      <description>Nitrogen content of bio-oil</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>biooil_properties</group>
+      <completeness_pct>25.83</completeness_pct>
+    </column>
+    <column>
+      <name>S_biooil_wt_pct</name>
+      <description>Sulfur content of bio-oil</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>biooil_properties</group>
+      <completeness_pct>25.02</completeness_pct>
+    </column>
+    <column>
+      <name>O_C_biooil_molar</name>
+      <description>O/C molar ratio of bio-oil</description>
+      <unit>molar ratio</unit>
+      <dtype>float</dtype>
+      <group>biooil_properties</group>
+      <completeness_pct>34.09</completeness_pct>
+    </column>
+    <column>
+      <name>H_C_biooil_molar</name>
+      <description>H/C molar ratio of bio-oil</description>
+      <unit>molar ratio</unit>
+      <dtype>float</dtype>
+      <group>biooil_properties</group>
+      <completeness_pct>35.07</completeness_pct>
+    </column>
+    <column>
+      <name>HHV_char_MJ_per_kg</name>
+      <description>Higher heating value of char / hydrochar</description>
+      <unit>MJ/kg</unit>
+      <dtype>float</dtype>
+      <group>char_properties</group>
+      <completeness_pct>25.24</completeness_pct>
+    </column>
+    <column>
+      <name>C_char_wt_pct</name>
+      <description>Carbon content of char</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>char_properties</group>
+      <completeness_pct>20.82</completeness_pct>
+    </column>
+    <column>
+      <name>H_char_wt_pct</name>
+      <description>Hydrogen content of char</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>char_properties</group>
+      <completeness_pct>21.31</completeness_pct>
+    </column>
+    <column>
+      <name>O_char_wt_pct</name>
+      <description>Oxygen content of char</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>char_properties</group>
+      <completeness_pct>20.8</completeness_pct>
+    </column>
+    <column>
+      <name>N_char_wt_pct</name>
+      <description>Nitrogen content of char</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>char_properties</group>
+      <completeness_pct>17.71</completeness_pct>
+    </column>
+    <column>
+      <name>S_char_wt_pct</name>
+      <description>Sulfur content of char</description>
+      <unit>wt%</unit>
+      <dtype>float</dtype>
+      <group>char_properties</group>
+      <completeness_pct>14.05</completeness_pct>
+    </column>
+    <column>
+      <name>O_C_char_molar</name>
+      <description>O/C molar ratio of char</description>
+      <unit>molar ratio</unit>
+      <dtype>float</dtype>
+      <group>char_properties</group>
+      <completeness_pct>19.82</completeness_pct>
+    </column>
+    <column>
+      <name>H_C_char_molar</name>
+      <description>H/C molar ratio of char</description>
+      <unit>molar ratio</unit>
+      <dtype>float</dtype>
+      <group>char_properties</group>
+      <completeness_pct>20.34</completeness_pct>
+    </column>
+    <column>
+      <name>Ash_adjusted</name>
+      <description>Column: Ash_adjusted</description>
+      <unit null="true" />
+      <dtype>boolean</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>Ash_adjustment</name>
+      <description>Column: Ash_adjustment</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>LRI_dd</name>
+      <description>Column: LRI_dd</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>CeRI_dd</name>
+      <description>Column: CeRI_dd</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HeRI_dd</name>
+      <description>Column: HeRI_dd</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>LCH_total_imputed_wt_pct</name>
+      <description>Imputed LCH_total (ML model or median fallback)</description>
+      <unit>wt% of dry feedstock</unit>
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_imputed_from_LCH</name>
+      <description>Column: Lignin_imputed_from_LCH</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>cellulose_imputed_from_LCH</name>
+      <description>Column: cellulose_imputed_from_LCH</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>hemicellulose_imputed_from_LCH</name>
+      <description>Column: hemicellulose_imputed_from_LCH</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>CeFrac_dd</name>
+      <description>Column: CeFrac_dd</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HRI_dd</name>
+      <description>Column: HRI_dd</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>CRI_dd</name>
+      <description>Column: CRI_dd</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HeRI_comp_dd</name>
+      <description>Column: HeRI_comp_dd</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>L_share_idx</name>
+      <description>Column: L_share_idx</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>CeFrac_idx</name>
+      <description>Column: CeFrac_idx</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_HHV_est</name>
+      <description>Column: Lignin_HHV_est</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_C_est</name>
+      <description>Column: Lignin_C_est</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_est</name>
+      <description>Column: Lignin_est</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>Holocellulose</name>
+      <description>Column: Holocellulose</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>96.18</completeness_pct>
+    </column>
+    <column>
+      <name>CeFrac_mb</name>
+      <description>Column: CeFrac_mb</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>87.71</completeness_pct>
+    </column>
+    <column>
+      <name>inv_OC</name>
+      <description>Column: inv_OC</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>inv_HC</name>
+      <description>Column: inv_HC</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>ash_inv</name>
+      <description>Column: ash_inv</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>99.68</completeness_pct>
+    </column>
+    <column>
+      <name>C_norm</name>
+      <description>Column: C_norm</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HHV_norm</name>
+      <description>Column: HHV_norm</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>LPI</name>
+      <description>Column: LPI</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HoPI</name>
+      <description>Column: HoPI</description>
+      <unit null="true" />
+      <dtype>float</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>C_Note</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>1.3</completeness_pct>
+    </column>
+    <column>
+      <name>C_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>O_Note</name>
+      <description>Column: O_Note</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>1.35</completeness_pct>
+    </column>
+    <column>
+      <name>O_method</name>
+      <description>Column: O_method</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>O/C_Note</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>1.35</completeness_pct>
+    </column>
+    <column>
+      <name>OC_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>H/C_Note</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>1.3</completeness_pct>
+    </column>
+    <column>
+      <name>HC_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>t_note</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HHV_feedstock_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>99.21</completeness_pct>
+    </column>
+    <column>
+      <name>HHV_feedstock_imputed</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>boolean</dtype>
+      <group>tracking</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HHV_biooil_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>0.89</completeness_pct>
+    </column>
+    <column>
+      <name>HHV_biochar_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>0.27</completeness_pct>
+    </column>
+    <column>
+      <name>S_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>54.78</completeness_pct>
+    </column>
+    <column>
+      <name>S_biooil_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>25.02</completeness_pct>
+    </column>
+    <column>
+      <name>S_biochar_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>14.05</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>8.77</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_imputed</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>boolean</dtype>
+      <group>tracking</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>cellulose_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>36.23</completeness_pct>
+    </column>
+    <column>
+      <name>cellulose_imputed</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>boolean</dtype>
+      <group>tracking</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>hemicellulose_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>37.29</completeness_pct>
+    </column>
+    <column>
+      <name>hemicellulose_imputed</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>boolean</dtype>
+      <group>tracking</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>N_imputed</name>
+      <description>Column: N_imputed</description>
+      <unit null="true" />
+      <dtype>boolean</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>N_method</name>
+      <description>Column: N_method</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>3.85</completeness_pct>
+    </column>
+    <column>
+      <name>Ash_method</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>0.3</completeness_pct>
+    </column>
+    <column>
+      <name>Ash_imputed</name>
+      <description null="true" />
+      <unit null="true" />
+      <dtype>boolean</dtype>
+      <group>tracking</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>LRI_imputed_source</name>
+      <description>Source/method of LRI imputation (formula, ML_RF, etc.)</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>tracking</group>
+      <completeness_pct>98.7</completeness_pct>
+    </column>
+    <column>
+      <name>LRI_dd_source</name>
+      <description>Column: LRI_dd_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>CeRI_dd_source</name>
+      <description>Column: CeRI_dd_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HeRI_dd_source</name>
+      <description>Column: HeRI_dd_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>LCH_total_imputed_source</name>
+      <description>Source/method of LCH_total imputation (ML_RF, median_family, etc.)</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>Lignin_imputed_from_LCH_source</name>
+      <description>Column: Lignin_imputed_from_LCH_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>cellulose_imputed_from_LCH_source</name>
+      <description>Column: cellulose_imputed_from_LCH_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>hemicellulose_imputed_from_LCH_source</name>
+      <description>Column: hemicellulose_imputed_from_LCH_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>CeFrac_dd_source</name>
+      <description>Column: CeFrac_dd_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HRI_dd_source</name>
+      <description>Column: HRI_dd_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>CRI_dd_source</name>
+      <description>Column: CRI_dd_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>HeRI_comp_dd_source</name>
+      <description>Column: HeRI_comp_dd_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>L_share_idx_source</name>
+      <description>Column: L_share_idx_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>CeFrac_idx_source</name>
+      <description>Column: CeFrac_idx_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>100.0</completeness_pct>
+    </column>
+    <column>
+      <name>Holocellulose_source</name>
+      <description>Column: Holocellulose_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>96.18</completeness_pct>
+    </column>
+    <column>
+      <name>CeFrac_mb_source</name>
+      <description>Column: CeFrac_mb_source</description>
+      <unit null="true" />
+      <dtype>string</dtype>
+      <group>other</group>
+      <completeness_pct>87.71</completeness_pct>
+    </column>
+  </columns>
+</dataset_metadata>
