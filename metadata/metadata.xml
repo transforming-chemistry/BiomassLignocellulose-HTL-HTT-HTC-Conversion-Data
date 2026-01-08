@@ -4,7 +4,7 @@
   <version>1.0.0</version>
   <description>This dataset provides a unified, curated collection of experimental results on the hydrothermal conversion of lignocellulosic and lignin-rich biomass, including hydrothermal treatment (HTT), hydrothermal liquefaction (HTL), and related process variants. It comprises 3,693 experimental runs extracted from peer-reviewed literature spanning over 40 years (1982-2026), encompassing 145 features including feedstock composition, reaction conditions, product yields, and energy/carbon recovery metrics. The database covers diverse biomass feedstocks, reactor configurations, solvents, catalysts, temperatures (typically 200-400°C), residence times, and operating conditions, with all records normalized to consistent units and yield bases. The dataset includes comprehensive provenance tracking, quality-control flags, and documentation of imputed values. Beyond raw experimental data, it provides derived descriptors such as elemental ratios (O/C, H/C), lignocellulosic composition fractions, energy yields, carbon recoveries, and composite indicators (e.g., Lignin Readiness Index). With standardized schemas and column-level metadata, the dataset is designed to support machine-learning model development, comparative process analysis, life-cycle assessment (LCA) studies, and serves as a FAIR-compliant resource for the biomass conversion, sustainable chemistry, and digital chemistry communities.</description>
   <license>CC-BY-4.0</license>
-  <created>2026-01-06</created>
+  <created>2026-01-08</created>
   <n_rows>3693</n_rows>
   <n_columns>145</n_columns>
   <year_range>
@@ -14,7 +14,7 @@
   <contact>
     <name>Seifallah El Fetni</name>
     <affiliation>CTC gGmbH</affiliation>
-    <email>your.email@institution.de</email>
+    <email />
   </contact>
   <keywords>
     <keyword>biomass</keyword>
@@ -30,15 +30,6 @@
     <keyword>LCA</keyword>
   </keywords>
   <column_groups>
-    <group name="yields">
-      <column>Yield_biooil_wt_pct</column>
-      <column>Yield_char_wt_pct</column>
-      <column>Yield_aqueous_wt_pct</column>
-      <column>Yield_gas_wt_pct</column>
-      <column>Yield_gas_water_wt_pct</column>
-      <column>Energy_yield_biooil_pct</column>
-      <column>Energy_yield_char_pct</column>
-    </group>
     <group name="char_properties">
       <column>Carbon_yield_char_pct</column>
       <column>HHV_char_MJ_per_kg</column>
@@ -50,61 +41,9 @@
       <column>O_C_char_molar</column>
       <column>H_C_char_molar</column>
     </group>
-    <group name="tracking">
-      <column>LRI_imputed</column>
-      <column>C_Note</column>
-      <column>C_method</column>
-      <column>O/C_Note</column>
-      <column>OC_method</column>
-      <column>H/C_Note</column>
-      <column>HC_method</column>
-      <column>t_note</column>
-      <column>HHV_feedstock_method</column>
-      <column>HHV_feedstock_imputed</column>
-      <column>HHV_biooil_method</column>
-      <column>HHV_biochar_method</column>
-      <column>S_method</column>
-      <column>S_biooil_method</column>
-      <column>S_biochar_method</column>
-      <column>Lignin_method</column>
-      <column>Lignin_imputed</column>
-      <column>cellulose_method</column>
-      <column>cellulose_imputed</column>
-      <column>hemicellulose_method</column>
-      <column>hemicellulose_imputed</column>
-      <column>Ash_method</column>
-      <column>Ash_imputed</column>
-      <column>LRI_imputed_source</column>
-    </group>
-    <group name="provenance">
-      <column>paper_title</column>
-      <column>DOI</column>
-      <column>year</column>
-      <column>Provenance</column>
-      <column>Ref</column>
-      <column>process_type</column>
-    </group>
     <group name="feedstock_identity">
       <column>Feedstock</column>
       <column>Family_std</column>
-    </group>
-    <group name="process_conditions">
-      <column>process_subtype</column>
-      <column>reactor</column>
-      <column>atmosphere</column>
-      <column>solvent_or_medium</column>
-      <column>T_reaction_C</column>
-      <column>t_residence_min</column>
-      <column>t_ramp_min</column>
-      <column>IC_feed_wt_pct_slurry</column>
-      <column>pressure_reaction_MPa</column>
-      <column>heating_rate_C_per_min</column>
-      <column>stirring_rpm</column>
-      <column>water_biomass_ratio_kg_kg</column>
-      <column>catalyst</column>
-      <column>cat_biomass_ratio_kg_kg</column>
-      <column>yield_basis</column>
-      <column>separation_method</column>
     </group>
     <group name="feedstock_composition">
       <column>C_feed_wt_pct</column>
@@ -124,16 +63,14 @@
       <column>HHV_feed_MJ_per_kg</column>
       <column>LRI</column>
     </group>
-    <group name="biooil_properties">
-      <column>Carbon_yield_biooil_pct</column>
-      <column>HHV_biooil_MJ_per_kg</column>
-      <column>C_biooil_wt_pct</column>
-      <column>H_biooil_wt_pct</column>
-      <column>O_biooil_wt_pct</column>
-      <column>N_biooil_wt_pct</column>
-      <column>S_biooil_wt_pct</column>
-      <column>O_C_biooil_molar</column>
-      <column>H_C_biooil_molar</column>
+    <group name="yields">
+      <column>Yield_biooil_wt_pct</column>
+      <column>Yield_char_wt_pct</column>
+      <column>Yield_aqueous_wt_pct</column>
+      <column>Yield_gas_wt_pct</column>
+      <column>Yield_gas_water_wt_pct</column>
+      <column>Energy_yield_biooil_pct</column>
+      <column>Energy_yield_char_pct</column>
     </group>
     <group name="other">
       <column>LCH_total_wt_pct</column>
@@ -192,6 +129,69 @@
       <column>CeFrac_idx_source</column>
       <column>Holocellulose_source</column>
       <column>CeFrac_mb_source</column>
+    </group>
+    <group name="provenance">
+      <column>paper_title</column>
+      <column>DOI</column>
+      <column>year</column>
+      <column>Provenance</column>
+      <column>Ref</column>
+      <column>process_type</column>
+    </group>
+    <group name="biooil_properties">
+      <column>Carbon_yield_biooil_pct</column>
+      <column>HHV_biooil_MJ_per_kg</column>
+      <column>C_biooil_wt_pct</column>
+      <column>H_biooil_wt_pct</column>
+      <column>O_biooil_wt_pct</column>
+      <column>N_biooil_wt_pct</column>
+      <column>S_biooil_wt_pct</column>
+      <column>O_C_biooil_molar</column>
+      <column>H_C_biooil_molar</column>
+    </group>
+    <group name="tracking">
+      <column>LRI_imputed</column>
+      <column>C_Note</column>
+      <column>C_method</column>
+      <column>O/C_Note</column>
+      <column>OC_method</column>
+      <column>H/C_Note</column>
+      <column>HC_method</column>
+      <column>t_note</column>
+      <column>HHV_feedstock_method</column>
+      <column>HHV_feedstock_imputed</column>
+      <column>HHV_biooil_method</column>
+      <column>HHV_biochar_method</column>
+      <column>S_method</column>
+      <column>S_biooil_method</column>
+      <column>S_biochar_method</column>
+      <column>Lignin_method</column>
+      <column>Lignin_imputed</column>
+      <column>cellulose_method</column>
+      <column>cellulose_imputed</column>
+      <column>hemicellulose_method</column>
+      <column>hemicellulose_imputed</column>
+      <column>Ash_method</column>
+      <column>Ash_imputed</column>
+      <column>LRI_imputed_source</column>
+    </group>
+    <group name="process_conditions">
+      <column>process_subtype</column>
+      <column>reactor</column>
+      <column>atmosphere</column>
+      <column>solvent_or_medium</column>
+      <column>T_reaction_C</column>
+      <column>t_residence_min</column>
+      <column>t_ramp_min</column>
+      <column>IC_feed_wt_pct_slurry</column>
+      <column>pressure_reaction_MPa</column>
+      <column>heating_rate_C_per_min</column>
+      <column>stirring_rpm</column>
+      <column>water_biomass_ratio_kg_kg</column>
+      <column>catalyst</column>
+      <column>cat_biomass_ratio_kg_kg</column>
+      <column>yield_basis</column>
+      <column>separation_method</column>
     </group>
   </column_groups>
   <columns>
