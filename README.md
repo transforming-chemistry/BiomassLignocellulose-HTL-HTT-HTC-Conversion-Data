@@ -37,6 +37,7 @@ modules/                Analysis utilities
 notebooks/              Example notebooks
 LICENSE                 CC BY 4.0
 CITATION.cff           Citation metadata
+METHODOLOGY.txt         Detailed methodology for research papers
 ```
 
 ## Data Organization
@@ -117,6 +118,10 @@ by_family = df.groupby('Family_std').agg({
 completeness = df.notna().sum() / len(df) * 100
 print(completeness.sort_values(ascending=False).head(10))
 ```
+
+## Notebooks and Data Ingestion
+
+The `notebooks/` folder includes example notebooks for data exploration. For each source publication, detailed ingestion notebooks were prepared that document the extraction process, perform advanced sanity checks, and reproduce key figures from the original papers. These notebooks include QA-envelope plots (range validation against literature-reported bounds for each process type) to ensure data consistency. Due to copyright restrictions, we cannot share all ingestion notebooks here as they contain reproduced figures, nor the PDFs of publications under restrictive licenses (CC BY-NC-ND or similar). However, the complete ingestion notebooks and source materials are available upon request for academic purposes.
 
 ## License
 
