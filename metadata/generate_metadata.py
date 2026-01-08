@@ -284,7 +284,7 @@ def generate_metadata():
         "contact": {
             "name": "Seifallah El Fetni",
             "affiliation": "CTC gGmbH",
-            "email": "your.email@institution.de"
+            "email": ""
         },
         "keywords": [
             "biomass", "hydrothermal liquefaction", "hydrothermal treatment",
