@@ -162,4 +162,4 @@ Data compiled from peer-reviewed literature. Thanks to all original authors for 
 
 
 ## Database Overview
-![Flowchart](BD_Overview.png)
+![Flowchart](DB_overview.gif)

@@ -91,13 +91,19 @@ def plot_van_krevelen_diagram(
         family_data = plot_df[plot_df[family_col] == family]
         marker = family_markers.get(family, "o")  # default to circle if not found
         
+        # Prepare scatter parameters (avoid edgecolor for unfilled markers)
+        scatter_params = scatter_defaults.copy()
+        if marker in ['+', 'x', '|', '_', 'X', 'P', 1, 2, 3, 4]:  # unfilled markers
+            scatter_params.pop('edgecolor', None)
+            scatter_params.pop('linewidth', None)
+        
         ax.scatter(
             family_data[oc_col], 
             family_data[hc_col],
             c=[colors[i]], 
             marker=marker,
             label=family,
-            **scatter_defaults
+            **scatter_params
         )
     
     # Add reference lines if requested
