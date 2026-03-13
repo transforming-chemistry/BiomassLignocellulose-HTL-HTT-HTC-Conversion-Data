@@ -1,4 +1,5 @@
 # [Biomass HTT/HTL Dataset](https://doi.org/10.22000/0b7ffmw1jtca3gw3)
+DOI: 10.22000/0b7ffmw1jtca3gw3
 
 ## Overview
 
@@ -131,24 +132,9 @@ You may share and adapt this dataset with appropriate attribution.
 
 ## Citation
 
-```bibtex
-@dataset{elfetni2026biomass,
-  author    = {El Fetni, Seifallah},
-  title     = {Biomass HTT/HTL Dataset},
-  year      = {2026},
-  publisher = {RADAR},
-  version   = {1.0.0},
-  doi       = {10.22000/XXXXX}
-}
-```
+Elfetni, Seifallah (2026): Unified, curated dataset of biomass hydrothermal treatment/liquefaction experiments for lignocellulosic and lignin-rich biomass. Elfetni, Seifallah. DOI: 10.22000/0b7ffmw1jtca3gw3
 
-## Contact
-
-**Seifallah El Fetni**  
-CTC gGmbH  
-ORCID: [0000-0003-3615-627X](https://orcid.org/0000-0003-3615-627X)
-
-For issues or contributions, please open an issue or contact directly.
+.
 
 ## Acknowledgments
 
