@@ -1,5 +1,5 @@
 # [Biomass HTT/HTL Dataset](https://doi.org/10.22000/0b7ffmw1jtca3gw3)
-
+Unified, curated dataset of biomass hydrothermal treatment/liquefaction experiments for lignocellulosic and lignin-rich biomass
 DOI: https://doi.org/10.22000/0b7ffmw1jtca3gw3
 
 
