@@ -2,7 +2,7 @@
 Unified, curated dataset of biomass hydrothermal treatment/liquefaction experiments for lignocellulosic and lignin-rich biomass
 DOI: https://doi.org/10.22000/0b7ffmw1jtca3gw3
 
-# Hydrothermal Biomass Conversion Evidence-Review Dataset v2.0
+# V2 Release: Hydrothermal Biomass Conversion Evidence-Review Dataset v2.0
 Elfetni, S.& Tyrikos-Ergas, T. (2026). Hydrothermal biomass conversion evidence-review dataset v2.0: 4,038 HTT/HTL/HTC records and enrichment sidecar (Version 2.0) 
 [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.21061934
 
